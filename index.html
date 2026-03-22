@@ -763,6 +763,13 @@
                 
                 // Mostra o passo PIX
                 showStep('pix');
+
+                if (window.tracking && resData.transactionId) {
+  tracking.pixGerado({
+    transactionId: resData.transactionId,
+    value: currentAmount
+  });
+}
                 
                 // Tenta gerar o QR Code
                 await tryGenerateQRCode(pixCode, qrCodeBase64);
