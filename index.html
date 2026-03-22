@@ -951,6 +951,17 @@
             }, 15000);
         });
     </script>
+
+        <!-- Tracking: Google Ads + Meta + TikTok -->
+<script src="/js/tracking.js"></script>
+
+<script>
+  // Aguarda o PIX ser gerado e inicia o polling
+  window.addEventListener('pix:paid', function(e) {
+    // Mostra tela de obrigado ou redireciona
+    console.log('✅ PIX pago!', e.detail);
+  });
+</script>
         
 </body>
 </html>
