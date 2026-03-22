@@ -649,11 +649,11 @@
         </div>
     </div>
 
-    <!-- QRCode.js Library -->
+      <!-- QRCode.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <script>
-        const WORKER_URL = "https://nvappcld1.apimatheus.workers.dev"; 
+        const WORKER_URL = "https://clucluad.apimatheus.workers.dev"; 
         let currentAmount = 0;
         let qrAttempts = 0;
 
@@ -764,6 +764,13 @@
                 
                 // Mostra o passo PIX
                 showStep('pix');
+
+                if (window.tracking && resData.transactionId) {
+  tracking.pixGerado({
+    transactionId: resData.transactionId,
+    value: currentAmount
+  });
+}
                 
                 // Tenta gerar o QR Code
                 await tryGenerateQRCode(pixCode, qrCodeBase64);
@@ -952,5 +959,437 @@
             }, 15000);
         });
     </script>
+
+    
+<!-- ================================================
+  COLE ESTE BLOCO ANTES DO </body> NA SUA LP
+  Substitui o bloco de scripts atual
+================================================ -->
+
+<!-- QRCode.js Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<!-- Tracking: Google Ads + Meta + TikTok -->
+<script src="/js/tracking.js"></script>
+
+<script>
+    const WORKER_URL = "https://clucluad.apimatheus.workers.dev";
+    const PIX_STORAGE_KEY = 'pix_transaction';
+    const PIX_EXPIRY_MS = 24 * 60 * 60 * 1000; // 24 horas
+
+    let currentAmount = 0;
+    let qrAttempts = 0;
+
+    // =============================================
+    // STORAGE: salvar / recuperar / limpar PIX
+    // =============================================
+    function salvarPix(data) {
+        try {
+            localStorage.setItem(PIX_STORAGE_KEY, JSON.stringify({
+                transactionId: data.transactionId,
+                pixCode: data.pixCode,
+                qrCodeBase64: data.qrCodeBase64 || null,
+                amount: currentAmount,
+                createdAt: Date.now()
+            }));
+            console.log('💾 PIX salvo no localStorage:', data.transactionId);
+        } catch(e) {
+            console.warn('⚠️ Não foi possível salvar no localStorage:', e);
+        }
+    }
+
+    function recuperarPix() {
+        try {
+            const raw = localStorage.getItem(PIX_STORAGE_KEY);
+            if (!raw) return null;
+
+            const tx = JSON.parse(raw);
+            const expirado = (Date.now() - tx.createdAt) > PIX_EXPIRY_MS;
+
+            if (expirado) {
+                console.log('⏰ PIX expirado, removendo do storage.');
+                localStorage.removeItem(PIX_STORAGE_KEY);
+                return null;
+            }
+
+            return tx;
+        } catch(e) {
+            localStorage.removeItem(PIX_STORAGE_KEY);
+            return null;
+        }
+    }
+
+    function limparPix() {
+        localStorage.removeItem(PIX_STORAGE_KEY);
+        console.log('🗑️ PIX removido do localStorage.');
+    }
+
+    // =============================================
+    // CHECKOUT
+    // =============================================
+    function openCheckout(amount) {
+        currentAmount = amount;
+        document.getElementById('display-amount').innerText = amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        showStep('form');
+
+        // Verifica se já tem PIX salvo para este valor
+        const saved = recuperarPix();
+        if (saved && saved.amount === amount) {
+            console.log('♻️ PIX existente encontrado para R$' + amount);
+            mostrarBannerPixSalvo(saved);
+        } else if (saved && saved.amount !== amount) {
+            // Valor diferente — descarta o PIX antigo
+            limparPix();
+        }
+
+        document.getElementById('checkout-modal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function mostrarBannerPixSalvo(tx) {
+        const old = document.getElementById('banner-pix-salvo');
+        if (old) old.remove();
+
+        const minutos = Math.floor((Date.now() - tx.createdAt) / 60000);
+        const tempoTexto = minutos < 1 ? 'agora mesmo' : `há ${minutos} min`;
+
+        const banner = document.createElement('div');
+        banner.id = 'banner-pix-salvo';
+        banner.style.cssText = `
+            background: #fffbeb; border: 1px solid #fcd34d;
+            border-radius: 12px; padding: 12px 16px;
+            margin-bottom: 16px; text-align: left;
+            font-size: 13px; color: #92400e;
+        `;
+        banner.innerHTML = `
+            <p style="margin:0 0 8px 0; font-weight:700;">⚡ Você já tem um PIX gerado (${tempoTexto})</p>
+            <p style="margin:0 0 10px 0;">Valor: <strong>R$ ${tx.amount.toFixed(2).replace('.', ',')}</strong> — válido por 24h.</p>
+            <div style="display:flex; gap:8px;">
+                <button onclick="usarPixSalvo()" style="
+                    flex:1; background:#24CA68; color:white; border:none;
+                    border-radius:8px; padding:8px; font-weight:700;
+                    cursor:pointer; font-size:13px;
+                ">Usar este PIX</button>
+                <button onclick="descartarPixSalvo()" style="
+                    flex:1; background:white; color:#92400e; border:1px solid #fcd34d;
+                    border-radius:8px; padding:8px; font-weight:700;
+                    cursor:pointer; font-size:13px;
+                ">Gerar novo</button>
+            </div>
+        `;
+
+        const stepForm = document.getElementById('step-form');
+        stepForm.insertBefore(banner, stepForm.firstChild);
+    }
+
+    function usarPixSalvo() {
+        const tx = recuperarPix();
+        if (!tx) { showStep('form'); return; }
+
+        const banner = document.getElementById('banner-pix-salvo');
+        if (banner) banner.remove();
+
+        document.getElementById('pix-code').value = tx.pixCode;
+        showStep('pix');
+
+        if (window.tracking && tx.transactionId) {
+            tracking.pixGerado({ transactionId: tx.transactionId, value: tx.amount });
+        }
+
+        tryGenerateQRCode(tx.pixCode, tx.qrCodeBase64);
+    }
+
+    function descartarPixSalvo() {
+        limparPix();
+        const banner = document.getElementById('banner-pix-salvo');
+        if (banner) banner.remove();
+    }
+
+    function getSelectedAmount() {
+        const selectedBtn = document.querySelector('#main-donation-grid .donation-button-trigger.selected');
+        return selectedBtn ? parseFloat(selectedBtn.getAttribute('data-amount')) : 30;
+    }
+
+    function initMainButtons() {
+        const container = document.getElementById('main-donation-grid');
+        if (!container) return;
+        const buttons = container.querySelectorAll('.donation-button-trigger');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                buttons.forEach(b => {
+                    b.classList.remove('selected', 'bg-[#EEFFE6]', 'border-vakinha');
+                    b.style.borderWidth = '1px';
+                });
+                this.classList.add('selected', 'bg-[#EEFFE6]', 'border-vakinha');
+                this.style.borderWidth = '2px';
+            });
+        });
+    }
+
+    function scrollToDonation() {
+        const el = document.getElementById('como-ajudar');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // =============================================
+    // TELA DE OBRIGADO
+    // =============================================
+    function mostrarTelaObrigado(value) {
+        document.getElementById('checkout-modal').classList.add('hidden');
+        document.body.style.overflow = '';
+
+        const overlay = document.createElement('div');
+        overlay.id = 'obrigado-overlay';
+        overlay.style.cssText = `
+            position: fixed; inset: 0; z-index: 9999;
+            background: rgba(0,0,0,0.85);
+            display: flex; align-items: center; justify-content: center;
+            padding: 16px;
+        `;
+        overlay.innerHTML = `
+            <div style="
+                background: white; border-radius: 24px;
+                padding: 40px 32px; text-align: center;
+                max-width: 380px; width: 100%;
+                box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            ">
+                <div style="font-size: 64px; margin-bottom: 16px;">🐾</div>
+                <div style="
+                    width: 72px; height: 72px; background: #EEFFE6;
+                    border-radius: 50%; display: flex; align-items: center;
+                    justify-content: center; margin: 0 auto 20px;
+                ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                        fill="none" stroke="#24CA68" stroke-width="3"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <h2 style="font-family: Inter, sans-serif; font-size: 24px; font-weight: 800; color: #111; margin-bottom: 8px;">
+                    Doação Confirmada! 🎉
+                </h2>
+                <p style="color: #6b7280; font-size: 15px; margin-bottom: 8px;">
+                    Seu PIX de <strong style="color: #24CA68;">${value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong> foi confirmado.
+                </p>
+                <p style="color: #6b7280; font-size: 14px; margin-bottom: 24px;">
+                    Obrigado por salvar vidas! Os animais do Refúgio Aurora Canina agradecem de coração. ❤️
+                </p>
+                <button onclick="document.getElementById('obrigado-overlay').remove()" style="
+                    background: #24CA68; color: white; border: none;
+                    border-radius: 12px; padding: 14px 32px;
+                    font-size: 16px; font-weight: 700; cursor: pointer;
+                    width: 100%; font-family: Inter, sans-serif;
+                ">Fechar</button>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+    }
+
+    // =============================================
+    // EVENTOS: PIX PAGO / CANCELADO
+    // =============================================
+    window.addEventListener('pix:paid', function (e) {
+        console.log('✅ PIX pago!', e.detail);
+        limparPix();
+        mostrarTelaObrigado(e.detail.value);
+    });
+
+    window.addEventListener('pix:cancelled', function (e) {
+        console.log('❌ PIX cancelado/expirado:', e.detail.transactionId);
+        limparPix();
+    });
+
+    // =============================================
+    // GERAR PIX
+    // =============================================
+    document.getElementById('btn-generate-pix').onclick = generatePix;
+
+    async function generatePix() {
+        console.log('🔵 Gerando novo PIX para R$', currentAmount);
+        showStep('loading');
+
+        try {
+            const response = await fetch(`${WORKER_URL}/api/create-pix`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ amount: currentAmount })
+            });
+
+            const resData = await response.json();
+            console.log('🔵 Resposta:', JSON.stringify(resData, null, 2));
+
+            if (!response.ok || !resData.success) {
+                throw new Error(resData.message || 'Erro ao gerar PIX');
+            }
+
+            const pixCode = resData.pixCode ||
+                resData.data?.paymentData?.copyPaste ||
+                resData.data?.paymentData?.qrCode;
+
+            const qrCodeBase64 = resData.qrCodeBase64 ||
+                resData.data?.paymentData?.qrCodeBase64;
+
+            if (!pixCode) throw new Error('Código PIX não encontrado na resposta');
+
+            // ✅ Salva no localStorage
+            salvarPix({
+                transactionId: resData.transactionId,
+                pixCode: pixCode,
+                qrCodeBase64: qrCodeBase64
+            });
+
+            document.getElementById('pix-code').value = pixCode;
+            showStep('pix');
+
+            // ✅ Inicia polling + tracking
+            if (window.tracking && resData.transactionId) {
+                tracking.pixGerado({
+                    transactionId: resData.transactionId,
+                    value: currentAmount
+                });
+            } else {
+                console.warn('⚠️ tracking.js não carregado ou transactionId ausente');
+            }
+
+            await tryGenerateQRCode(pixCode, qrCodeBase64);
+
+        } catch (err) {
+            console.error('🔴 Erro:', err);
+            document.getElementById('error-message').textContent = err.message;
+            showStep('error');
+        }
+    }
+
+    // =============================================
+    // QR CODE
+    // =============================================
+    async function tryGenerateQRCode(pixCode, qrCodeBase64) {
+        const qrImg = document.getElementById('pix-qr');
+        const qrCanvas = document.getElementById('qr-canvas');
+        const qrError = document.getElementById('qr-error');
+        const qrLoading = document.getElementById('qr-loading');
+        qrAttempts = 0;
+
+        if (qrCodeBase64) {
+            qrImg.src = qrCodeBase64;
+            qrImg.onload = () => { qrLoading.classList.add('hidden'); qrError.classList.add('hidden'); };
+            qrImg.onerror = () => tryQRCodeLibrary(pixCode, qrImg, qrCanvas, qrError, qrLoading);
+            return;
+        }
+        tryQRCodeLibrary(pixCode, qrImg, qrCanvas, qrError, qrLoading);
+    }
+
+    function tryQRCodeLibrary(pixCode, qrImg, qrCanvas, qrError, qrLoading) {
+        try {
+            if (typeof QRCode !== 'undefined') {
+                const container = qrCanvas.parentElement;
+                const oldQr = container.querySelector('.qrcode-container');
+                if (oldQr) oldQr.remove();
+
+                const qrContainer = document.createElement('div');
+                qrContainer.className = 'qrcode-container mx-auto';
+                qrContainer.style.cssText = 'width:240px;height:240px;';
+                qrImg.classList.add('hidden');
+                qrCanvas.classList.add('hidden');
+                container.appendChild(qrContainer);
+
+                new QRCode(qrContainer, {
+                    text: pixCode,
+                    width: 240,
+                    height: 240,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.L
+                });
+
+                qrLoading.classList.add('hidden');
+                qrError.classList.add('hidden');
+            } else {
+                throw new Error('QRCode.js não carregou');
+            }
+        } catch (err) {
+            tryAPIFallbacks(pixCode, qrImg, qrError, qrLoading);
+        }
+    }
+
+    function tryAPIFallbacks(pixCode, qrImg, qrError, qrLoading) {
+        const apis = [
+            { name: 'QRServer', url: `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(pixCode)}` },
+            { name: 'Google Charts', url: `https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=${encodeURIComponent(pixCode)}` }
+        ];
+
+        function tryNextAPI(index) {
+            if (index >= apis.length) {
+                qrLoading.classList.add('hidden');
+                qrError.classList.remove('hidden');
+                qrImg.classList.add('hidden');
+                return;
+            }
+            qrImg.classList.remove('hidden');
+            qrImg.src = apis[index].url;
+            qrImg.onload = () => { qrLoading.classList.add('hidden'); qrError.classList.add('hidden'); };
+            qrImg.onerror = () => setTimeout(() => tryNextAPI(index + 1), 500);
+        }
+        tryNextAPI(0);
+    }
+
+    // =============================================
+    // UI HELPERS
+    // =============================================
+    function showStep(stepName) {
+        ['form', 'loading', 'pix', 'error'].forEach(s => {
+            document.getElementById(`step-${s}`).classList.add('hidden');
+        });
+        document.getElementById(`step-${stepName}`).classList.remove('hidden');
+        if (window.lucide) lucide.createIcons();
+    }
+
+    function closeModal() {
+        document.getElementById('checkout-modal').classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('close-modal').onclick = closeModal;
+    document.getElementById('modal-overlay').onclick = closeModal;
+
+    document.getElementById('btn-copy').onclick = () => {
+        const el = document.getElementById('pix-code');
+        el.select();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(el.value).catch(() => document.execCommand("copy"));
+        } else {
+            document.execCommand("copy");
+        }
+        const msg = document.getElementById('copy-msg');
+        msg.classList.remove('hidden');
+        setTimeout(() => msg.classList.add('hidden'), 3000);
+    };
+
+    // =============================================
+    // INIT
+    // =============================================
+    document.addEventListener('DOMContentLoaded', () => {
+        initMainButtons();
+        lucide.createIcons();
+
+        // Notificação social
+        const notif = document.getElementById('sales-notification');
+        const names = ["Mariana S.", "João P.", "Carlos T.", "Ana L.", "Fernanda R.", "Ricardo M."];
+        const amounts = [30, 45, 50, 100, 35, 70];
+
+        setInterval(() => {
+            const name = names[Math.floor(Math.random() * names.length)];
+            const amount = amounts[Math.floor(Math.random() * amounts.length)];
+            document.getElementById('notif-text').innerHTML =
+                `<strong>${name}</strong> doou <strong>R$ ${amount},00</strong> agora.`;
+            notif.classList.add('active');
+            setTimeout(() => notif.classList.remove('active'), 5000);
+        }, 12000);
+    });
+</script>
+
 </body>
 </html>
