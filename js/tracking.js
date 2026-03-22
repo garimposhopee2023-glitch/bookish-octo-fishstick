@@ -13,8 +13,8 @@
 
     google: {
       enabled: true,
-      gtag_id: 'AW-XXXXXXXXX',         // Seu Google Ads ID
-      conversion_label: 'XXXXXXXXXXX', // Label da conversão
+      gtag_id: 'AW-18025989883',         // Seu Google Ads ID
+      conversion_label: 'LtC_CKHRi40cEPuNu5ND', // Label da conversão
     },
 
     meta: {
