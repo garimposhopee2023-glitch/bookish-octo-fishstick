@@ -17,7 +17,7 @@
       enabled: true,
       accounts: [
         { gtag_id: 'AW-18025989883', conversion_label: 'LtC_CKHRi40cEPuNu5ND' },
-        { gtag_id: 'AW-XXXXXXXXX2', conversion_label: 'LABEL_2_AQUI' },
+        { gtag_id: 'AW-17532295976', conversion_label: 'Uwd3CI3305kbEKi2hqhB' },
         { gtag_id: 'AW-XXXXXXXXX3', conversion_label: 'LABEL_3_AQUI' },
         { gtag_id: 'AW-XXXXXXXXX4', conversion_label: 'LABEL_4_AQUI' },
         { gtag_id: 'AW-XXXXXXXXX5', conversion_label: 'LABEL_5_AQUI' },
