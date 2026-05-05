@@ -1,133 +1,179 @@
 // ============================================================
-// tracking.js — Google Ads + Meta Pixel + TikTok Pixel
-// v3.0 — Suporte a múltiplos pixels (até 10 por plataforma)
-// Inclua este script na sua landing page ANTES de fechar o </body>
+// tracking.js - Google Ads + Meta Pixel + TikTok Pixel
+// v3.1 - UTMs, click IDs, polling PIX e protecao contra duplicidade
+// Inclua este script na landing page antes de fechar o </body>
 // ============================================================
 
 (function () {
+  "use strict";
 
   // ============================================================
-  // CONFIGURAÇÃO — edite aqui
-  // Adicione ou remova entradas dos arrays conforme necessário
+  // CONFIGURACAO
   // ============================================================
+
   var TRACKING_CONFIG = {
-    worker_url: 'https://clucluad.apimatheus.workers.dev',
+    worker_url: "https://paradise2.apimatheus.workers.dev/",
+    debug: true,
 
     google: {
       enabled: true,
       accounts: [
-        { gtag_id: 'AW-18025989883', conversion_label: 'LtC_CKHRi40cEPuNu5ND' },
-        { gtag_id: 'AW-17532295976', conversion_label: 'Uwd3CI3305kbEKi2hqhB' },
-        { gtag_id: 'AW-XXXXXXXXX3', conversion_label: 'LABEL_3_AQUI' },
-        { gtag_id: 'AW-XXXXXXXXX4', conversion_label: 'LABEL_4_AQUI' },
-        { gtag_id: 'AW-XXXXXXXXX5', conversion_label: 'LABEL_5_AQUI' },
-        { gtag_id: 'AW-XXXXXXXXX6', conversion_label: 'LABEL_6_AQUI' },
-        { gtag_id: 'AW-XXXXXXXXX7', conversion_label: 'LABEL_7_AQUI' },
-        { gtag_id: 'AW-XXXXXXXXX8', conversion_label: 'LABEL_8_AQUI' },
-        { gtag_id: 'AW-XXXXXXXXX9', conversion_label: 'LABEL_9_AQUI' },
-        { gtag_id: 'AW-XXXXXXXXX0', conversion_label: 'LABEL_10_AQUI' },
-      ]
+        { gtag_id: "AW-18025989883", conversion_label: "LtC_CKHRi40cEPuNu5ND" },
+        { gtag_id: "AW-17532295976", conversion_label: "Uwd3CI3305kbEKi2hqhB" },
+        { gtag_id: "AW-XXXXXXXXX3", conversion_label: "LABEL_3_AQUI" },
+        { gtag_id: "AW-XXXXXXXXX4", conversion_label: "LABEL_4_AQUI" },
+        { gtag_id: "AW-XXXXXXXXX5", conversion_label: "LABEL_5_AQUI" },
+        { gtag_id: "AW-XXXXXXXXX6", conversion_label: "LABEL_6_AQUI" },
+        { gtag_id: "AW-XXXXXXXXX7", conversion_label: "LABEL_7_AQUI" },
+        { gtag_id: "AW-XXXXXXXXX8", conversion_label: "LABEL_8_AQUI" },
+        { gtag_id: "AW-XXXXXXXXX9", conversion_label: "LABEL_9_AQUI" },
+        { gtag_id: "AW-XXXXXXXXX0", conversion_label: "LABEL_10_AQUI" },
+      ],
     },
 
     meta: {
       enabled: true,
       pixel_ids: [
-        '704849652401799',
-        '1000000000000002',
-        '1000000000000003',
-        '1000000000000004',
-        '1000000000000005',
-        '1000000000000006',
-        '1000000000000007',
-        '1000000000000008',
-        '1000000000000009',
-        '1000000000000010',
-      ]
+        "704849652401799",
+        "1000000000000002",
+        "1000000000000003",
+        "1000000000000004",
+        "1000000000000005",
+        "1000000000000006",
+        "1000000000000007",
+        "1000000000000008",
+        "1000000000000009",
+        "1000000000000010",
+      ],
     },
 
     tiktok: {
       enabled: true,
       pixel_ids: [
-        'TIKTOK_PIXEL_ID_01',
-        'TIKTOK_PIXEL_ID_02',
-        'TIKTOK_PIXEL_ID_03',
-        'TIKTOK_PIXEL_ID_04',
-        'TIKTOK_PIXEL_ID_05',
-        'TIKTOK_PIXEL_ID_06',
-        'TIKTOK_PIXEL_ID_07',
-        'TIKTOK_PIXEL_ID_08',
-        'TIKTOK_PIXEL_ID_09',
-        'TIKTOK_PIXEL_ID_10',
-      ]
+        "TIKTOK_PIXEL_ID_01",
+        "TIKTOK_PIXEL_ID_02",
+        "TIKTOK_PIXEL_ID_03",
+        "TIKTOK_PIXEL_ID_04",
+        "TIKTOK_PIXEL_ID_05",
+        "TIKTOK_PIXEL_ID_06",
+        "TIKTOK_PIXEL_ID_07",
+        "TIKTOK_PIXEL_ID_08",
+        "TIKTOK_PIXEL_ID_09",
+        "TIKTOK_PIXEL_ID_10",
+      ],
     },
 
     polling: {
       interval_ms: 4000,
-      max_attempts: 75, // ~5 minutos
-    }
+      max_attempts: 75,
+    },
   };
-  // ============================================================
 
   var cfg = TRACKING_CONFIG;
 
   // ============================================================
-  // RASTREAMENTO DE URL — gclid, fbclid, ttclid, UTMs
+  // STORAGE E PARAMETROS
   // ============================================================
 
-  var STORAGE_KEY = 'tracking_params';
-  var STORAGE_TTL = 30 * 24 * 60 * 60 * 1000; // 30 dias
+  var STORAGE_KEY = "tracking_params";
+  var CONVERSIONS_KEY = "tracking_conversions_fired";
+  var STORAGE_TTL = 30 * 24 * 60 * 60 * 1000;
+
+  var CLICK_KEYS = ["gclid", "fbclid", "ttclid", "msclkid"];
+  var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+  var TRACKING_KEYS = CLICK_KEYS.concat(UTM_KEYS);
+
+  function log() {
+    if (!cfg.debug || !window.console) return;
+    console.log.apply(console, arguments);
+  }
+
+  function warn() {
+    if (!window.console) return;
+    console.warn.apply(console, arguments);
+  }
 
   function parseUrlParams() {
     var params = new URLSearchParams(window.location.search);
-    return {
-      gclid:        params.get('gclid')        || '',
-      fbclid:       params.get('fbclid')       || '',
-      ttclid:       params.get('ttclid')       || '',
-      msclkid:      params.get('msclkid')      || '',
-      utm_source:   params.get('utm_source')   || '',
-      utm_medium:   params.get('utm_medium')   || '',
-      utm_campaign: params.get('utm_campaign') || '',
-      utm_content:  params.get('utm_content')  || '',
-      utm_term:     params.get('utm_term')     || '',
-      landing_url:  window.location.href,
-      referrer:     document.referrer          || '',
-      captured_at:  new Date().toISOString(),
+    var data = {
+      landing_url: window.location.href,
+      referrer: document.referrer || "",
+      captured_at: new Date().toISOString(),
     };
+
+    TRACKING_KEYS.forEach(function (key) {
+      data[key] = params.get(key) || "";
+    });
+
+    return data;
+  }
+
+  function hasAnyTrackingParam(params) {
+    return TRACKING_KEYS.some(function (key) {
+      return !!params[key];
+    });
+  }
+
+  function hasAnyClickId(params) {
+    return CLICK_KEYS.some(function (key) {
+      return !!params[key];
+    });
+  }
+
+  function mergeTrackingParams(existing, incoming) {
+    var merged = {};
+
+    Object.keys(existing || {}).forEach(function (key) {
+      merged[key] = existing[key];
+    });
+
+    Object.keys(incoming || {}).forEach(function (key) {
+      if (incoming[key]) merged[key] = incoming[key];
+    });
+
+    merged.landing_url = incoming.landing_url || existing.landing_url || window.location.href;
+    merged.referrer = incoming.referrer || existing.referrer || document.referrer || "";
+    merged.captured_at = incoming.captured_at || existing.captured_at || new Date().toISOString();
+
+    return merged;
   }
 
   function saveTrackingParams(params) {
-    var existing = loadTrackingParams();
-    var hasNewClick = params.gclid || params.fbclid || params.ttclid || params.msclkid;
-    var hasExistingClick = existing && (existing.gclid || existing.fbclid || existing.ttclid || existing.msclkid);
+    var existing = loadTrackingParams() || {};
+    var merged;
 
-    if (hasExistingClick && !hasNewClick) {
-      console.log('[Tracking] Mantendo parâmetros de clique anteriores.');
-      return existing;
+    if (hasAnyClickId(existing) && !hasAnyClickId(params)) {
+      merged = mergeTrackingParams(existing, params);
+      log("[Tracking] Mantendo click IDs anteriores e atualizando UTMs disponiveis:", merged);
+    } else {
+      merged = mergeTrackingParams(existing, params);
+      log("[Tracking] Parametros salvos:", merged);
     }
 
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        data: params,
+        data: merged,
         expires_at: Date.now() + STORAGE_TTL,
       }));
-      console.log('[Tracking] Parâmetros salvos:', params);
     } catch (e) {
-      console.warn('[Tracking] Erro ao salvar localStorage:', e);
+      warn("[Tracking] Erro ao salvar localStorage:", e);
     }
 
-    return params;
+    return merged;
   }
 
   function loadTrackingParams() {
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return null;
+
       var payload = JSON.parse(raw);
-      if (Date.now() > payload.expires_at) {
+      if (!payload || Date.now() > payload.expires_at) {
         localStorage.removeItem(STORAGE_KEY);
         return null;
       }
-      return payload.data;
+
+      return payload.data || null;
     } catch (e) {
       return null;
     }
@@ -139,74 +185,133 @@
 
   function captureUrlParams() {
     var params = parseUrlParams();
-    var hasAnyParam = Object.keys(params).some(function (k) {
-      return k !== 'landing_url' && k !== 'referrer' && k !== 'captured_at' && params[k] !== '';
+    if (hasAnyTrackingParam(params)) saveTrackingParams(params);
+  }
+
+  function buildTrackingQuery(transactionId) {
+    var tp = getTrackingParams();
+    var query = new URLSearchParams();
+
+    query.set("id", transactionId || "");
+
+    TRACKING_KEYS.forEach(function (key) {
+      query.set(key, tp[key] || "");
     });
-    if (hasAnyParam) saveTrackingParams(params);
+
+    if (tp.landing_url) query.set("landing_url", tp.landing_url);
+    if (tp.referrer) query.set("referrer", tp.referrer);
+
+    return query;
   }
 
   // ============================================================
-  // GOOGLE ADS — múltiplas contas
+  // PROTECAO CONTRA CONVERSAO DUPLICADA
   // ============================================================
+
+  function loadFiredConversions() {
+    try {
+      var raw = localStorage.getItem(CONVERSIONS_KEY);
+      var payload = raw ? JSON.parse(raw) : {};
+      return payload && typeof payload === "object" ? payload : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function hasConversionFired(transactionId) {
+    if (!transactionId) return false;
+    return !!loadFiredConversions()[transactionId];
+  }
+
+  function markConversionFired(transactionId) {
+    if (!transactionId) return;
+
+    try {
+      var fired = loadFiredConversions();
+      fired[transactionId] = Date.now();
+      localStorage.setItem(CONVERSIONS_KEY, JSON.stringify(fired));
+    } catch (e) {
+      warn("[Tracking] Erro ao marcar conversao:", e);
+    }
+  }
+
+  // ============================================================
+  // GOOGLE ADS
+  // ============================================================
+
+  function validGoogleAccounts() {
+    if (!cfg.google.accounts) return [];
+
+    return cfg.google.accounts.filter(function (account) {
+      return account.gtag_id &&
+        account.conversion_label &&
+        account.gtag_id.indexOf("XXXXXXXXX") === -1 &&
+        account.conversion_label.indexOf("LABEL") === -1;
+    });
+  }
 
   function loadGoogleTag() {
     if (!cfg.google.enabled) return;
-    if (!cfg.google.accounts || cfg.google.accounts.length === 0) return;
+
+    var accounts = validGoogleAccounts();
+    if (accounts.length === 0) return;
 
     window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
 
-    cfg.google.accounts.forEach(function (account) {
-      // Pula entradas não preenchidas
-      if (!account.gtag_id || account.gtag_id.includes('XXXXXXXXX')) return;
+    window.gtag("js", new Date());
 
+    accounts.forEach(function (account) {
       if (!document.querySelector('script[src*="' + account.gtag_id + '"]')) {
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + account.gtag_id;
-        document.head.appendChild(s);
+        var script = document.createElement("script");
+        script.async = true;
+        script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(account.gtag_id);
+        document.head.appendChild(script);
       }
 
-      window.gtag('config', account.gtag_id, {
+      window.gtag("config", account.gtag_id, {
         allow_enhanced_conversions: true,
       });
 
-      console.log('[Tracking] Google Tag carregado:', account.gtag_id);
+      log("[Tracking] Google Tag carregado:", account.gtag_id);
     });
   }
 
   function fireGoogleConversion(value, currency, transactionId) {
     if (!cfg.google.enabled || !window.gtag) return;
-    if (!cfg.google.accounts || cfg.google.accounts.length === 0) return;
 
-    var tp = getTrackingParams();
-
-    cfg.google.accounts.forEach(function (account) {
-      if (!account.gtag_id || account.gtag_id.includes('XXXXXXXXX')) return;
-      if (!account.conversion_label || account.conversion_label.includes('LABEL')) return;
-
-      window.gtag('event', 'conversion', {
-        send_to: account.gtag_id + '/' + account.conversion_label,
-        value: parseFloat(value),
-        currency: currency || 'BRL',
-        transaction_id: transactionId || '',
-        gclid: tp.gclid || '',
+    validGoogleAccounts().forEach(function (account) {
+      window.gtag("event", "conversion", {
+        send_to: account.gtag_id + "/" + account.conversion_label,
+        value: parseFloat(value) || 0,
+        currency: currency || "BRL",
+        transaction_id: transactionId || "",
       });
 
-      console.log('[Tracking] Google conversão:', account.gtag_id, '| Valor:', value);
+      log("[Tracking] Google conversao:", account.gtag_id, "| Valor:", value);
     });
   }
 
   // ============================================================
-  // META PIXEL — múltiplos pixels
+  // META PIXEL
   // ============================================================
+
+  function validMetaPixels() {
+    if (!cfg.meta.pixel_ids) return [];
+
+    return cfg.meta.pixel_ids.filter(function (id) {
+      return id && id.indexOf("1000000000000") === -1;
+    });
+  }
 
   function loadMetaPixel() {
     if (!cfg.meta.enabled) return;
-    if (!cfg.meta.pixel_ids || cfg.meta.pixel_ids.length === 0) return;
 
-    // Carrega o SDK fbevents apenas uma vez
+    var pixelIds = validMetaPixels();
+    if (pixelIds.length === 0) return;
+
     if (!window.fbq) {
       !function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
@@ -214,242 +319,242 @@
           n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
         };
         if (!f._fbq) f._fbq = n;
-        n.push = n; n.loaded = !0; n.version = '2.0';
+        n.push = n;
+        n.loaded = true;
+        n.version = "2.0";
         n.queue = [];
-        t = b.createElement(e); t.async = !0;
+        t = b.createElement(e);
+        t.async = true;
         t.src = v;
         s = b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t, s);
-      }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
     }
 
-    var tp = getTrackingParams();
-
-    // Inicializa cada pixel individualmente
-    cfg.meta.pixel_ids.forEach(function (id) {
-      if (!id || id.includes('1000000000000')) return;
-
-      window.fbq('init', id, {
-        external_id: tp.fbclid || undefined,
-      });
-
-      console.log('[Tracking] Meta Pixel carregado:', id);
+    pixelIds.forEach(function (id) {
+      window.fbq("init", id);
+      log("[Tracking] Meta Pixel carregado:", id);
     });
 
-    // PageView dispara para todos os pixels inicializados
-    window.fbq('track', 'PageView');
+    window.fbq("track", "PageView");
   }
 
   function fireMetaConversion(value, currency, transactionId) {
     if (!cfg.meta.enabled || !window.fbq) return;
-    if (!cfg.meta.pixel_ids || cfg.meta.pixel_ids.length === 0) return;
 
-    cfg.meta.pixel_ids.forEach(function (id) {
-      if (!id || id.includes('1000000000000')) return;
-
-      // trackSingle garante que o evento vai só para este pixel
-      window.fbq('trackSingle', id, 'Purchase', {
-        value: parseFloat(value),
-        currency: currency || 'BRL',
-        order_id: transactionId || '',
-        content_ids: [transactionId || ''],
-        content_type: 'product',
+    validMetaPixels().forEach(function (id) {
+      window.fbq("trackSingle", id, "Purchase", {
+        value: parseFloat(value) || 0,
+        currency: currency || "BRL",
+        order_id: transactionId || "",
+        content_ids: [transactionId || ""],
+        content_type: "product",
       });
 
-      console.log('[Tracking] Meta Purchase:', id, '| Valor:', value);
+      log("[Tracking] Meta Purchase:", id, "| Valor:", value);
     });
   }
 
   // ============================================================
-  // TIKTOK PIXEL — múltiplos pixels
+  // TIKTOK PIXEL
   // ============================================================
+
+  function validTikTokPixels() {
+    if (!cfg.tiktok.pixel_ids) return [];
+
+    return cfg.tiktok.pixel_ids.filter(function (id) {
+      return id && id.indexOf("TIKTOK_PIXEL_ID") === -1;
+    });
+  }
 
   function loadTikTokPixel() {
     if (!cfg.tiktok.enabled) return;
-    if (!cfg.tiktok.pixel_ids || cfg.tiktok.pixel_ids.length === 0) return;
 
-    // Carrega o SDK do TikTok apenas uma vez
+    var pixelIds = validTikTokPixels();
+    if (pixelIds.length === 0) return;
+
     if (!window.ttq) {
       !function (w, d, t) {
         w.TiktokAnalyticsObject = t;
         var ttq = w[t] = w[t] || [];
-        ttq.methods = ['page', 'track', 'identify', 'instances', 'debug', 'on', 'off', 'once', 'ready', 'alias', 'group', 'enableCookie', 'disableCookie'];
-        ttq.setAndDefer = function (t, e) {
-          t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))); };
+        ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie"];
+        ttq.setAndDefer = function (obj, method) {
+          obj[method] = function () {
+            obj.push([method].concat(Array.prototype.slice.call(arguments, 0)));
+          };
         };
         for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
-        ttq.instance = function (t) {
-          for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
-          return e;
+        ttq.instance = function (id) {
+          var instance = ttq._i[id] || [];
+          for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(instance, ttq.methods[i]);
+          return instance;
         };
-        ttq.load = function (e, n) {
-          var i = 'https://analytics.tiktok.com/i18n/pixel/events.js';
-          ttq._i = ttq._i || {}; ttq._i[e] = []; ttq._i[e]._u = i;
-          ttq._r = ttq._r || {}; ttq._r[e] = n;
-          var o = document.createElement('script');
-          o.type = 'text/javascript'; o.async = !0;
-          o.src = i + '?sdkid=' + e + '&lib=' + t;
-          var a = document.getElementsByTagName('script')[0];
-          a.parentNode.insertBefore(o, a);
+        ttq.load = function (id, options) {
+          var src = "https://analytics.tiktok.com/i18n/pixel/events.js";
+          ttq._i = ttq._i || {};
+          ttq._i[id] = [];
+          ttq._i[id]._u = src;
+          ttq._r = ttq._r || {};
+          ttq._r[id] = options;
+          var script = d.createElement("script");
+          script.type = "text/javascript";
+          script.async = true;
+          script.src = src + "?sdkid=" + id + "&lib=" + t;
+          var first = d.getElementsByTagName("script")[0];
+          first.parentNode.insertBefore(script, first);
         };
-      }(window, document, 'ttq');
+      }(window, document, "ttq");
     }
 
     var tp = getTrackingParams();
 
-    // Carrega e registra cada pixel individualmente
-    cfg.tiktok.pixel_ids.forEach(function (id) {
-      if (!id || id.includes('TIKTOK_PIXEL_ID')) return;
+    pixelIds.forEach(function (id) {
+      window.ttq.load(id, {
+        ttclid: tp.ttclid || undefined,
+      });
 
-      window.ttq.load(id, { ttclid: tp.ttclid || undefined });
-      window.ttq.page();
-
-      console.log('[Tracking] TikTok Pixel carregado:', id);
+      log("[Tracking] TikTok Pixel carregado:", id);
     });
+
+    window.ttq.page();
   }
 
   function fireTikTokConversion(value, currency, transactionId) {
     if (!cfg.tiktok.enabled || !window.ttq) return;
-    if (!cfg.tiktok.pixel_ids || cfg.tiktok.pixel_ids.length === 0) return;
 
-    cfg.tiktok.pixel_ids.forEach(function (id) {
-      if (!id || id.includes('TIKTOK_PIXEL_ID')) return;
-
-      // instance() garante que o evento vai só para este pixel
-      window.ttq.instance(id).track('CompletePayment', {
-        value: parseFloat(value),
-        currency: currency || 'BRL',
-        order_id: transactionId || '',
-        contents: [{ content_id: transactionId || '', content_type: 'product' }],
+    validTikTokPixels().forEach(function (id) {
+      window.ttq.instance(id).track("CompletePayment", {
+        value: parseFloat(value) || 0,
+        currency: currency || "BRL",
+        order_id: transactionId || "",
+        contents: [{ content_id: transactionId || "", content_type: "product" }],
       });
 
-      console.log('[Tracking] TikTok CompletePayment:', id, '| Valor:', value);
+      log("[Tracking] TikTok CompletePayment:", id, "| Valor:", value);
     });
   }
 
   // ============================================================
-  // DISPARO GERAL
+  // CONVERSOES
   // ============================================================
 
   function fireAllConversions(value, currency, transactionId) {
-    var tp = getTrackingParams();
-    console.log('[Tracking] 🎯 Disparando conversões! Valor: R$' + value);
-    console.log('[Tracking] Parâmetros ativos:', {
-      gclid:        tp.gclid        || '-',
-      fbclid:       tp.fbclid       || '-',
-      ttclid:       tp.ttclid       || '-',
-      utm_source:   tp.utm_source   || '-',
-      utm_campaign: tp.utm_campaign || '-',
-    });
+    if (transactionId && hasConversionFired(transactionId)) {
+      log("[Tracking] Conversao ja disparada para:", transactionId);
+      return;
+    }
+
+    log("[Tracking] Disparando conversoes. Valor: R$" + value);
+    log("[Tracking] Parametros ativos:", getTrackingParams());
 
     fireGoogleConversion(value, currency, transactionId);
     fireMetaConversion(value, currency, transactionId);
     fireTikTokConversion(value, currency, transactionId);
+
+    markConversionFired(transactionId);
   }
 
   // ============================================================
-  // POLLING — verifica pagamento PIX
+  // POLLING PIX
   // ============================================================
 
   function startPolling(transactionId, value, currency) {
     if (!transactionId) {
-      console.warn('[Tracking] Polling não iniciado: sem transactionId');
+      warn("[Tracking] Polling nao iniciado: sem transactionId/reference");
       return;
     }
 
-    var attempts    = 0;
+    var attempts = 0;
     var maxAttempts = cfg.polling.max_attempts;
-    var interval    = cfg.polling.interval_ms;
+    var interval = cfg.polling.interval_ms;
 
-    console.log('[Tracking] ⏳ Iniciando polling para:', transactionId);
+    log("[Tracking] Iniciando polling para:", transactionId);
 
     var timer = setInterval(function () {
       attempts++;
 
       if (attempts > maxAttempts) {
         clearInterval(timer);
-        console.warn('[Tracking] ⚠️ Polling encerrado: tempo máximo atingido.');
+        warn("[Tracking] Polling encerrado: tempo maximo atingido.");
         return;
       }
 
-      var tp = getTrackingParams();
+      var statusUrl = cfg.worker_url + "/api/pix-status?" + buildTrackingQuery(transactionId).toString();
 
-      var queryParams = new URLSearchParams({
-        id:           transactionId,
-        gclid:        tp.gclid        || '',
-        fbclid:       tp.fbclid       || '',
-        ttclid:       tp.ttclid       || '',
-        utm_source:   tp.utm_source   || '',
-        utm_medium:   tp.utm_medium   || '',
-        utm_campaign: tp.utm_campaign || '',
-        utm_content:  tp.utm_content  || '',
-        utm_term:     tp.utm_term     || '',
-      });
-
-      var statusUrl = cfg.worker_url + '/api/pix-status?' + queryParams.toString();
-
-      fetch(statusUrl)
-        .then(function (r) { return r.json(); })
+      fetch(statusUrl, {
+        method: "GET",
+        headers: { "Accept": "application/json" },
+      })
+        .then(function (response) {
+          return response.json().catch(function () {
+            return {};
+          });
+        })
         .then(function (data) {
-          console.log('[Tracking] Status:', data.status, '| Tentativa:', attempts);
+          var status = String(data.status || "").toUpperCase();
+          log("[Tracking] Status:", status || "-", "| Tentativa:", attempts);
 
-          if (data.status === 'PAID') {
+          if (status === "PAID") {
             clearInterval(timer);
             fireAllConversions(value, currency, transactionId);
 
-            window.dispatchEvent(new CustomEvent('pix:paid', {
+            window.dispatchEvent(new CustomEvent("pix:paid", {
               detail: {
-                transactionId:  transactionId,
-                value:          value,
-                trackingParams: tp,
-              }
+                transactionId: transactionId,
+                value: value,
+                trackingParams: getTrackingParams(),
+              },
             }));
           }
 
-          if (data.status === 'CANCELLED') {
+          if (status === "CANCELLED" || status === "CANCELED" || status === "EXPIRED") {
             clearInterval(timer);
-            console.log('[Tracking] PIX cancelado ou expirado.');
-            window.dispatchEvent(new CustomEvent('pix:cancelled', {
-              detail: { transactionId: transactionId }
+            log("[Tracking] PIX cancelado ou expirado.");
+
+            window.dispatchEvent(new CustomEvent("pix:cancelled", {
+              detail: { transactionId: transactionId },
             }));
           }
         })
         .catch(function (err) {
-          console.warn('[Tracking] Erro no polling:', err);
+          warn("[Tracking] Erro no polling:", err);
         });
-
     }, interval);
+
+    return timer;
   }
 
   // ============================================================
-  // API PÚBLICA
+  // API PUBLICA
   // ============================================================
 
   window.tracking = {
-
-    // Chame após gerar o PIX
-    // tracking.pixGerado({ transactionId: 'TXN-xxx', value: 97.00 })
     pixGerado: function (options) {
-      startPolling(
-        options.transactionId,
-        options.value    || 0,
-        options.currency || 'BRL'
+      options = options || {};
+
+      return startPolling(
+        options.reference || options.transactionId || options.id,
+        options.value || options.amount || 0,
+        options.currency || "BRL"
       );
     },
 
-    // Retorna parâmetros de rastreamento ativos
     getParams: function () {
       return getTrackingParams();
     },
 
-    // Disparo manual de conversão (fallback)
+    capture: function () {
+      captureUrlParams();
+      return getTrackingParams();
+    },
+
     dispararConversao: function (value, currency, transactionId) {
-      fireAllConversions(value, currency || 'BRL', transactionId || '');
-    }
+      fireAllConversions(value, currency || "BRL", transactionId || "");
+    },
   };
 
   // ============================================================
-  // INICIALIZAÇÃO
+  // INICIALIZACAO
   // ============================================================
 
   function init() {
@@ -457,13 +562,12 @@
     loadGoogleTag();
     loadMetaPixel();
     loadTikTokPixel();
-    console.log('[Tracking] ✅ Pixels inicializados.');
+    log("[Tracking] Pixels inicializados.");
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
   } else {
     init();
   }
-
-})();
+}());
