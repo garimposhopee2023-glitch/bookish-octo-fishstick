@@ -12,7 +12,7 @@
   // ============================================================
 
   var TRACKING_CONFIG = {
-    worker_url: "https://paradise2.apimatheus.workers.dev/",
+    worker_url: "https://paradise2.apimatheus.workers.dev",
     debug: true,
 
     google: {
