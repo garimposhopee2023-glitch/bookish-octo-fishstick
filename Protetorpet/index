@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17532295976"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17532295976');
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajude a pagar o tratamento do Enzo Gabriel 😺 | Vaquinhas online</title>
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="description" content="Ajude o Abrigo Resgaute a não fechar as portas. 45 cães dependem da sua doação. Use checkout seguro e salve vidas.">
+
+
+<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/2fe2d42c-fabf-4058-bc60-85466a804755/players/69e6d9aa05c3ed4453d80ac8/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/2fe2d42c-fabf-4058-bc60-85466a804755/69e6d99b9813ca264c22327c/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+
+     <!-- Scripts -->
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "jc4zzotbky");
+    </script>
+   <!-- UTMify Script -->    <script      src="https://cdn.utmify.com.br/scripts/utms/latest.js"      data-utmify-prevent-xcod-sck      data-utmify-prevent-subids      async      defer    ></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Novas Fontes: Inter (Texto) e Poppins (Títulos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons e Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" async defer></script>
+
+    <style>
+        /* Configuração de Fontes Atualizadas */
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400; /* Define Inter Regular como padrão */
+            background-color: #f8f9fa;
+            color: #282828;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6, button, .font-heading {
+            font-family: 'Inter', sans-serif; /* Altera títulos para Inter */
+        }
+
+        /* Cores Vakinha */
+        .bg-vakinha { background-color: #24CA68; }
+        .text-vakinha { color: #24CA68; }
+        .border-vakinha { border-color: #24CA68; }
+        .hover-bg-vakinha-dark:hover { background-color: #009d4e; }
+
+        /* Gradiente Especial para Destaques */
+        .gradient-green {
+            background: linear-gradient(135deg, #24CA68 0%, #1ea855 100%);
+        }
+
+        /* Efeitos Visuais */
+        .shimmer {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer-effect 2s infinite linear;
+        }
+        @keyframes shimmer-effect {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .progress-bar-container {
+            background-color: #e9ecef;
+            border-radius: 9999px;
+            overflow: hidden;
+            height: 10px;
+        }
+        .progress-bar {
+            background-color: #24CA68;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        /* Botões de Doação estilo Vakinha */
+        .donation-button-trigger {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: #374151;
+            text-align: center;
+            transition: all 0.2s;
+            cursor: pointer;
+            background: white;
+        }
+        .donation-button-trigger:hover {
+            border-color: #24CA68;
+            color: #24CA68;
+            background-color: #f0fdf4;
+        }
+        .donation-button-trigger.selected {
+            background-color: #EEFFE6;
+            border-color: #24CA68;
+            border-width: 2px;
+            color: #24CA68;
+        }
+
+        /* Inputs Estilo Vakinha (Checkout) */
+        .vakinha-input {
+            background-color: #fff;
+            border: 1px solid #b9b9b9;
+            border-radius: 8px;
+            color: #282828;
+            font-size: 16px;
+            padding: 12px 16px;
+            width: 100%;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .vakinha-input:focus {
+            border-color: #5a5a5a;
+            box-shadow: 0 0 4px rgba(90,90,90,0.2);
+        }
+        .vakinha-input::placeholder {
+            color: #8a8a8a;
+        }
+        .input-error {
+            border-color: #ef4444 !important;
+        }
+        .error-message {
+            color: #ef4444;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        /* Timer Box */
+        .timer-box {
+            background: linear-gradient(to bottom right, #fef2f2, #fff1f2);
+            border: 1px solid #fecaca;
+        }
+
+        /* Header Vakinha Style */
+        .header-shadow {
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        
+        .btn-criar-vakinha {
+            background-color: #24CA68;
+            color: white;
+            font-weight: 700;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        .btn-criar-vakinha:hover {
+            background-color: #009d4e;
+        }
+        #sales-notification {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(24px) scale(0.96);
+            transform-origin: left bottom;
+            filter: blur(2px);
+            box-shadow: 0 18px 45px rgba(17, 24, 39, 0.18);
+            transition:
+                opacity 0.35s ease,
+                transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.35s ease;
+        }
+        #sales-notification.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Notificação de Prova Social -->
+    <div id="sales-notification" class="fixed bottom-6 left-4 z-50 bg-white rounded-2xl shadow-2xl p-4 border border-gray-100 flex items-center gap-4 max-w-[280px] md:max-w-sm">
+        <div class="relative">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-vakinha">
+                <i data-lucide="heart" class="fill-current w-6 h-6"></i>
+            </div>
+            <div class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"></div>
+        </div>
+        <div class="flex-1">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-tighter mb-0.5" style="font-family: 'Inter', sans-serif">Nova doação recebida</p>
+            <p id="notif-text" class="text-sm font-medium text-gray-700 leading-tight">
+                <strong>Mariana S.</strong> acabou de doar <strong>R$ 45,00</strong>
+            </p>
+            <p class="text-[10px] text-vakinha font-bold mt-1 flex items-center gap-1">
+                <i data-lucide="check-circle" class="w-3 h-3"></i> Doação Verificada
+            </p>
+        </div>
+    </div>
+
+    <!-- Cabeçalho Oficial Vakinha -->
+    <header class="bg-white header-shadow sticky top-0 z-40 h-[90px] flex items-center">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <!-- Logo -->
+                <a href="#" class="flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="125" height="32" fill="none" viewBox="0 0 151 40">
+                        <path fill="#24CA68" fill-rule="evenodd" d="M6.253 0h30.494a6.27 6.27 0 0 1 4.417 1.839A6.28 6.28 0 0 1 43 6.26V28.96q.001.148-.005.29V40l-8.12-4.775H6.253a6.27 6.27 0 0 1-4.416-1.84A6.28 6.28 0 0 1 0 28.964V6.263a6.28 6.28 0 0 1 1.837-4.421A6.27 6.27 0 0 1 6.253.002zm15.484 21.578q-.348 0-.692.046L15.3 11.647a3.97 3.97 0 0 0-2.732-5.986 3.956 3.956 0 0 0-4.246 2.262 3.97 3.97 0 0 0 1.065 4.697c.668.557 1.5.879 2.368.916l5.85 10.146a5.116 5.116 0 0 0 4.113 8.111 5.1 5.1 0 0 0 4.555-2.756 5.12 5.12 0 0 0-.368-5.317l5.87-10.178a3.96 3.96 0 0 0 3.692-3.085 3.97 3.97 0 0 0-2.003-4.376 3.955 3.955 0 0 0-4.744.784 3.97 3.97 0 0 0-.49 4.79l-5.754 9.976a5 5 0 0 0-.736-.058z" clip-rule="evenodd"></path>
+                        <path fill="#24CA68" d="M52.267 15.294a4.7 4.7 0 0 1-.26-1.078 2.07 2.07 0 0 1 .536-1.568A2.02 2.02 0 0 1 54.05 12c.502-.003.988.174 1.372.5.385.325.643.778.729 1.278l2.82 9.617h.057l2.821-9.617c.086-.5.344-.953.728-1.28A2.1 2.1 0 0 1 63.95 12a2 2 0 0 1 1.506.65 2.05 2.05 0 0 1 .537 1.566 4.5 4.5 0 0 1-.26 1.078L61.76 26.486C61.358 27.622 61.093 28 58.998 28s-2.359-.378-2.761-1.514zM80.562 23.504c.056.963.202 1.92.438 2.855a1.78 1.78 0 0 1-1.226 1.552 1.8 1.8 0 0 1-.69.079 2.28 2.28 0 0 1-1.823-.654 2.3 2.3 0 0 1-.672-1.822 7.3 7.3 0 0 1-5.8 2.476 4.52 4.52 0 0 1-3.299-1.165A4.55 4.55 0 0 1 66 23.65c0-3.524 2.67-4.513 5.92-4.892l2.58-.292c1.009-.11 1.829-.35 1.829-1.576s-1.25-1.747-2.67-1.747c-3.141 0-3.222 2.33-4.905 2.33a1.68 1.68 0 0 1-1.64-.975 1.7 1.7 0 0 1-.155-.655c0-1.688 2.38-3.844 6.73-3.844 4.064 0 6.879 1.311 6.879 4.368zm-4.237-3.058a3.8 3.8 0 0 1-1.829.67l-1.537.232c-1.771.263-2.729.816-2.729 2.097 0 .96.898 1.747 2.355 1.747 2.323 0 3.745-1.514 3.745-3.086zM83 8.153c0-.571.213-1.119.591-1.522.379-.404.892-.631 1.428-.631s1.049.227 1.427.63c.38.404.592.952.592 1.523v9.786l4.484-5.308c.19-.244.427-.443.693-.586.267-.142.558-.224.856-.24.489.01.956.216 1.31.577.353.36.567.85.6 1.37.01.27-.04.54-.145.785a1.7 1.7 0 0 1-.464.63l-2.993 3.336 4.204 6.015c.273.404.419.889.417 1.386a2.16 2.16 0 0 1-.554 1.461 1.9 1.9 0 0 1-1.354.633 1.97 1.97 0 0 1-1.037-.243 2.1 2.1 0 0 1-.788-.758l-3.816-5.75-1.411 1.326v3.274c0 .571-.213 1.119-.591 1.522-.379.404-.892.631-1.428.631a1.96 1.96 0 0 1-1.428-.63 2.23 2.23 0 0 1-.59-1.523zM99 6c.463 0 .911.179 1.269.506s.602.783.693 1.288c.09.506.02 1.031-.198 1.486a2.1 2.1 0 0 1-.999 1.008 1.8 1.8 0 0 1-1.346.074 2.03 2.03 0 0 1-1.082-.895 2.43 2.43 0 0 1-.327-1.457c.045-.513.249-.993.576-1.357A1.9 1.9 0 0 1 99 6m-1.921 8.037c0-.281.05-.56.146-.82.097-.26.238-.495.417-.694.178-.199.39-.357.623-.464a1.75 1.75 0 0 1 1.47 0c.234.107.446.265.624.464.179.199.32.435.417.695s.146.538.146.82v11.82c0 .569-.203 1.113-.563 1.515S99.51 28 99 28s-.998-.226-1.358-.627a2.27 2.27 0 0 1-.563-1.515zM104 14.133c0-1.281.565-2.128 1.866-2.128 1.3 0 1.867.847 1.867 2.128v.55h.057a6 6 0 0 1 2.173-1.996 5.8 5.8 0 0 1 2.834-.686c2.488 0 5.203 1.282 5.203 5.596v8.276c0 .564-.218 1.105-.605 1.504a2.03 2.03 0 0 1-1.46.623 2.03 2.03 0 0 1-1.459-.623 2.16 2.16 0 0 1-.605-1.504V18.44c0-1.72-.821-2.944-2.603-2.944a3.17 3.17 0 0 0-2.24 1.009 3.36 3.36 0 0 0-.899 2.342v7.023c0 .564-.217 1.105-.605 1.504a2.03 2.03 0 0 1-1.459.623 2.03 2.03 0 0 1-1.46-.623A2.16 2.16 0 0 1 104 25.87zM121 8.153c0-.57.218-1.119.605-1.522.387-.404.912-.631 1.46-.631s1.073.227 1.46.63c.387.404.604.952.604 1.523v5.927h.057a5.6 5.6 0 0 1 2.04-1.721 5.35 5.35 0 0 1 2.569-.551c2.489 0 5.205 1.298 5.205 5.663v8.376c0 .57-.218 1.119-.605 1.522-.387.404-.912.631-1.46.631a2.02 2.02 0 0 1-1.46-.63 2.2 2.2 0 0 1-.604-1.523v-7.524c0-1.74-.821-2.98-2.602-2.98a3.15 3.15 0 0 0-2.24 1.022 3.42 3.42 0 0 0-.898 2.37v7.107c0 .571-.218 1.12-.605 1.523-.387.404-.913.63-1.46.63a2.02 2.02 0 0 1-1.46-.63 2.2 2.2 0 0 1-.605-1.523zM150.562 23.504c.056.963.203 1.92.438 2.855a1.78 1.78 0 0 1-1.227 1.553 1.8 1.8 0 0 1-.689.078 2.28 2.28 0 0 1-1.824-.654 2.3 2.3 0 0 1-.672-1.822 7.3 7.3 0 0 1-5.8 2.476 4.52 4.52 0 0 1-3.298-1.165A4.55 4.55 0 0 1 136 23.65c0-3.524 2.669-4.513 5.921-4.892l2.579-.292c1.017-.11 1.829-.35 1.829-1.576s-1.248-1.747-2.669-1.747c-3.141 0-3.221 2.33-4.905 2.33a1.68 1.68 0 0 1-1.243-.433 1.7 1.7 0 0 1-.552-1.197c0-1.688 2.379-3.844 6.729-3.844 4.063 0 6.879 1.311 6.879 4.368zm-4.237-3.058a3.8 3.8 0 0 1-1.828.67l-1.538.232c-1.77.263-2.728.816-2.728 2.097 0 .96.897 1.747 2.355 1.747 2.321 0 3.743-1.514 3.743-3.086z"></path>
+                    </svg>
+                </a>
+                
+                <!-- Busca Desktop -->
+                <div class="hidden lg:flex items-center text-gray-400 gap-1 cursor-pointer hover:text-gray-600">
+                    <i data-lucide="search" class="w-5 h-5"></i>
+                    <span class="text-sm font-bold" style="font-family: 'Inter', sans-serif">Buscar</span>
+                </div>
+            </div>
+
+            <!-- Navegação -->
+            <div class="flex items-center gap-6">
+                <a href="#" class="hidden md:block text-vakinha font-bold text-sm" style="font-family: 'Inter', sans-serif">Minha conta</a>
+                <button onclick="scrollToDonation()" class="btn-criar-vakinha shadow-sm">
+                    Faz uma vaquinha!
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4 py-8 md:py-12">
+        <div class="lg:grid lg:grid-cols-3 lg:gap-8">
+
+            <!-- Coluna da Esquerda -->
+            <div class="lg:col-span-2 space-y-8">
+                <div>
+                    <span class="text-sm font-semibold text-vakinha">Animais / Pets</span>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 leading-tight">SOS DESPEJO: O Abrigo Resgaute tem 72h para pagar o aluguel ou 45 cães voltarão para a rua 🐾❤️</h1>
+                    <p class="text-gray-500 text-sm mt-2">ID 5911262</p>
+                    
+                    <!-- Contador Regressivo -->
+                    <div class="mt-6 timer-box rounded-xl p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-red-100 p-2 rounded-full animate-pulse">
+                                <i data-lucide="alarm-clock" class="w-6 h-6 text-red-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-red-600 uppercase tracking-widest font-heading" style="font-family: 'Inter', sans-serif">Tempo Restante</p>
+                                <p class="text-xs text-gray-500">Ajude antes que o prazo acabe</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 text-center">
+                            <div class="bg-white rounded-lg p-2 min-w-[60px] shadow-sm border border-red-100">
+                                <span id="hours" class="block text-2xl font-black text-red-600 leading-none font-mono">47</span>
+                                <span class="text-[10px] text-gray-400 font-bold uppercase">Horas</span>
+                            </div>
+                            <span class="text-2xl font-black text-red-300 mt-1">:</span>
+                            <div class="bg-white rounded-lg p-2 min-w-[60px] shadow-sm border border-red-100">
+                                <span id="minutes" class="block text-2xl font-black text-red-600 leading-none font-mono">59</span>
+                                <span class="text-[10px] text-gray-400 font-bold uppercase">Min</span>
+                            </div>
+                            <span class="text-2xl font-black text-red-300 mt-1">:</span>
+                            <div class="bg-white rounded-lg p-2 min-w-[60px] shadow-sm border border-red-100">
+                                <span id="seconds" class="block text-2xl font-black text-red-600 leading-none font-mono">59</span>
+                                <span class="text-[10px] text-gray-400 font-bold uppercase">Seg</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vídeo Player -->
+                <div class="aspect-[9/16] max-w-[350px] mx-auto rounded-3xl overflow-hidden shadow-2xl bg-black relative border-4 border-white">
+                    <vturb-smartplayer id="vid-69e6d9aa05c3ed4453d80ac8" style="display: block; width: 100%; height: 100%;"></vturb-smartplayer>
+                    <script src="https://scripts.converteai.net/2fe2d42c-fabf-4058-bc60-85466a804755/players/69e6d9aa05c3ed4453d80ac8/v4/player.js" async></script>
+                </div>
+
+
+                 <!-- Card de Doação Rápida -->
+                <div id="como-ajudar" class="bg-white p-6 md:p-8 rounded-2xl shadow-md text-center border-t-4 border-vakinha">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">Junte-se a nós! Salve uma vida hoje.</h2>
+                    <p class="text-gray-600 mb-6">Escolha um valor para doar pelo checkout seguro:</p>
+                    <div id="main-donation-grid" class="grid grid-cols-3 gap-3 max-w-2xl mx-auto">
+                        <button class="donation-button-trigger" data-amount="30">R$ 30</button>
+                        <button class="donation-button-trigger" data-amount="35">R$ 35</button>
+                        <button class="donation-button-trigger" data-amount="40">R$ 40</button>
+                        <button class="donation-button-trigger" data-amount="45">R$ 45</button>
+                        <button class="donation-button-trigger" data-amount="50">R$ 50</button>
+                        <button class="donation-button-trigger" data-amount="60">R$ 60</button>
+                        <button class="donation-button-trigger" data-amount="70">R$ 70</button>
+                        <div class="relative">
+                            <span class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-vakinha text-white text-[10px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-tighter z-10 whitespace-nowrap shadow-sm border border-white">Mais Doado</span>
+                            <button class="donation-button-trigger border-vakinha bg-[#EEFFE6] selected" data-amount="100">R$ 100</button>
+                        </div>
+                        <button class="donation-button-trigger" data-amount="235">R$ 235</button>
+                    </div>
+                    <button onclick="openCheckout(getSelectedAmount())" class="mt-6 w-full max-w-md bg-vakinha text-white font-bold py-4 rounded-xl text-xl hover-bg-vakinha-dark transition-all shadow-lg uppercase" style="font-family: 'Inter', sans-serif">
+                        Contribuir
+                    </button>
+                </div> <!-- CORREÇÃO: DIV Fechada Aqui -->
+
+                 <!-- Photo Gallery -->
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
+                    <h2 class="text-2xl font-bold mb-4">Conheça alguns dos nossos anjinhos</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <img src="https://www.soama.org.br/wp-content/uploads/2018/05/pepeu-2.jpg" alt="Cão resgatado Pepeu" class="rounded-lg object-cover aspect-square">
+                        <img src="https://www.soama.org.br/wp-content/uploads/2018/05/guga-1.jpg" alt="Cão resgatado Guga" class="rounded-lg object-cover aspect-square">
+                        <img src="https://www.soama.org.br/wp-content/uploads/2018/05/pepeu-4.jpg" alt="Outra foto do cão resgatado Pepeu" class="rounded-lg object-cover aspect-square">
+                        <img src="https://www.soama.org.br/wp-content/uploads/2018/05/frankie-vida-salva-2.jpg" alt="Cão resgatado Frankie" class="rounded-lg object-cover aspect-square">
+                        <img src="https://www.soama.org.br/wp-content/uploads/2018/03/billi-vida-salva.jpg" alt="Cão resgatado Billi" class="rounded-lg object-cover aspect-square">
+                        <img src="https://www.soama.org.br/wp-content/uploads/2018/05/pepeu-1.jpg" alt="Cão resgatado Pepeu sorrindo" class="rounded-lg object-cover aspect-square">
+                    </div>
+                </div>
+
+
+                <!-- FAQ Section -->
+<div class="bg-white p-6 md:p-8 rounded-2xl shadow-xl border-t-4 border-green-500">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-gray-800 mb-6 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-green-500 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        Perguntas Frequentes (FAQ)
+    </h2>
+    <div class="space-y-4">
+
+        <!-- FAQ Item 1 -->
+        <details class="group rounded-xl border border-gray-200 bg-gray-50 p-4 transition duration-300 open:border-green-500 open:shadow-lg">
+            <summary class="flex cursor-pointer items-center justify-between font-semibold text-lg text-gray-800 leading-relaxed">
+                Quem é o Instituto Aurora Canina?
+                <span class="flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-0 transform transition-transform duration-300 group-open:rotate-180 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+            </summary>
+            <p class="mt-4 text-gray-700 border-t border-gray-200 pt-4">
+                Somos uma ONG com 8 anos de atuação, dedicada ao resgate, reabilitação e reintegração de cães abandonados. Já tiramos mais de 3.000 animais das ruas e garantimos a dignidade para as 750 vidas que atualmente estão sob nossos cuidados no abrigo.
+            </p>
+        </details>
+
+        <!-- FAQ Item 2 -->
+        <details class="group rounded-xl border border-gray-200 bg-gray-50 p-4 transition duration-300 open:border-green-500 open:shadow-lg">
+            <summary class="flex cursor-pointer items-center justify-between font-semibold text-lg text-gray-800 leading-relaxed">
+                Qual é a emergência financeira atual?
+                <span class="flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-0 transform transition-transform duration-300 group-open:rotate-180 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+            </summary>
+            <p class="mt-4 text-gray-700 border-t border-gray-200 pt-4">
+                Estamos enfrentando nossa maior crise: o aluguel do único abrigo venceu e, o mais urgente, só temos ração para mais 48 horas. Sua ajuda é vital para evitar que as 750 vidas que protegemos fiquem sem alimento.
+            </p>
+        </details>
+
+        <!-- FAQ Item 3 -->
+        <details class="group rounded-xl border border-gray-200 bg-gray-50 p-4 transition duration-300 open:border-green-500 open:shadow-lg">
+            <summary class="flex cursor-pointer items-center justify-between font-semibold text-lg text-gray-800 leading-relaxed">
+                Para onde exatamente irá o meu dinheiro?
+                <span class="flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-0 transform transition-transform duration-300 group-open:rotate-180 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+            </summary>
+            <p class="mt-4 text-gray-700 border-t border-gray-200 pt-4">
+                100% da sua doação será utilizada para:
+                <ul class="list-disc list-inside mt-2 space-y-1">
+                    <li>Cobrir o aluguel atrasado do abrigo.</li>
+                    <li>Compra urgente de 700kg de ração.</li>
+                    <li>Aquisição de medicamentos e insumos veterinários essenciais para o tratamento dos animais doentes.</li>
+                </ul>
+            </p>
+        </details>
+
+        <!-- FAQ Item 4 -->
+        <details class="group rounded-xl border border-gray-200 bg-gray-50 p-4 transition duration-300 open:border-green-500 open:shadow-lg">
+            <summary class="flex cursor-pointer items-center justify-between font-semibold text-lg text-gray-800 leading-relaxed">
+                Como posso ter certeza da transparência e segurança da doação?
+                <span class="flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-0 transform transition-transform duration-300 group-open:rotate-180 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+            </summary>
+            <p class="mt-4 text-gray-700 border-t border-gray-200 pt-4">
+                Sua doação é processada pela nossa plataforma parceira, garantindo a segurança da transação. Além disso, o Instituto Aurora Canina mantém um compromisso de transparência total, compartilhando todos os comprovantes de despesas (notas fiscais e recibos) publicamente em nossas redes sociais.
+            </p>
+        </details>
+
+    </div>
+</div>
+
+
+
+            <!-- Testimonials/Comments Section -->
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
+                    <h2 class="text-2xl font-bold mb-6">O que os apoiadores dizem</h2>
+                    <div class="space-y-6">
+                        <!-- Comment 1 -->
+                        <div class="flex items-start space-x-4">
+                            <img src="https://pbs.twimg.com/profile_images/1703506021594046464/Bd_jBioB_400x400.jpg" alt="Vanessa Lima" class="h-12 w-12 rounded-full object-cover">
+                            <div>
+                                <p class="font-semibold text-gray-900">Vanessa Lima</p>
+                                <p class="text-gray-600 mt-1">"Doei 170 reais pq conheço essa ONG ha um tempo e confio, ajudei com o que pude pq n aguento ver tanto sofrimento nos olhinhos desses animais."</p>
+                                <span class="text-xs text-gray-400 mt-2">3 min atrás</span>
+                            </div>
+                        </div>
+                        <!-- Comment 2 -->
+                        <div class="flex items-start space-x-4">
+                            <img src="https://pbs.twimg.com/profile_images/1967770406204391424/fjYuDQNC_400x400.jpg" alt="Diego Martins" class="h-12 w-12 rounded-full object-cover">
+                            <div>
+                                <p class="font-semibold text-gray-900">Diego Martins</p>
+                                <p class="text-gray-600 mt-1">"Já acompanho faz tempo, confio de olhos fechados. Bora ajudar gente!!"</p>
+                                <span class="text-xs text-gray-400 mt-2">12 min atrás</span>
+                            </div>
+                        </div>
+                         <!-- Comment 3 -->
+                        <div class="flex items-start space-x-4">
+                            <img src="https://randomuser.me/api/portraits/women/75.jpg" alt="Patrícia Ferreira" class="h-12 w-12 rounded-full object-cover">
+                            <div>
+                                <p class="font-semibold text-gray-900">Patrícia Ferreira</p>
+                                <p class="text-gray-600 mt-1">"Pessoal, vamos ajudar... essa ONG é top, sério mesmo. Fazem um trabalho de respeito!"</p>
+                                <span class="text-xs text-gray-400 mt-2">18 min atrás</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-1 mt-8 lg:mt-0">
+                <div class="sticky top-28 space-y-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
+                        <h2 class="text-xl font-bold mb-4 text-gray-900">Progresso da Campanha</h2>
+                        
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <p class="text-3xl font-black text-vakinha" style="font-family: 'Inter', sans-serif">R$ 6.960</p>
+                                    <p class="text-xs text-gray-500 font-bold uppercase tracking-wider">Arrecadados</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm font-bold text-gray-400">Meta: R$ 8.000</p>
+                                </div>
+                            </div>
+
+                            <div class="progress-bar-container">
+                                <div class="progress-bar h-full" style="width: 87%;"></div>
+                            </div>
+
+                            <div class="flex justify-between text-sm font-bold">
+                                <span class="text-vakinha">87% Completo</span>
+                                <span class="text-gray-400">142 Apoiadores</span>
+                            </div>
+                        </div>
+
+                        <hr class="my-6 border-gray-100">
+
+                        <div class="space-y-3">
+                            <p class="text-sm font-bold text-gray-700 mb-2">Selecione para doar:</p>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button class="donation-button-trigger py-3" onclick="openCheckout(30)">R$ 30</button>
+                                <button class="donation-button-trigger py-3" onclick="openCheckout(35)">R$ 35</button>
+                                <button class="donation-button-trigger py-3" onclick="openCheckout(40)">R$ 40</button>
+                                <button class="donation-button-trigger py-3" onclick="openCheckout(45)">R$ 45</button>
+                                <button class="donation-button-trigger py-3" onclick="openCheckout(50)">R$ 50</button>
+                                <button class="donation-button-trigger py-3" onclick="openCheckout(60)">R$ 60</button>
+                                <button class="donation-button-trigger py-3" onclick="openCheckout(70)">R$ 70</button>
+                                <button class="donation-button-trigger py-3 border-vakinha bg-[#EEFFE6]" onclick="openCheckout(100)">R$ 100</button>
+                                <button class="donation-button-trigger py-3" onclick="openCheckout(235)">R$ 235</button>
+                            </div>
+                            <button onclick="scrollToDonation()" class="w-full bg-vakinha text-white font-bold py-4 rounded-xl shadow-lg hover-bg-vakinha-dark transition-all uppercase mt-2">
+                                Contribuir
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-md flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full bg-gray-100 overflow-hidden border-2 border-white shadow-sm">
+                            <img src="https://cdn-icons-png.flaticon.com/512/194/194630.png" alt="Logo ONG" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Abrigo Resgaute</h3>
+                            <p class="text-xs text-gray-500">Campinas - SP | ONG Verificada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+   <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-16 border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-8 flex justify-center opacity-80 hover:opacity-100 transition-opacity">
+                <!-- Logo Branco Vakinha -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="125" height="32" fill="none" viewBox="0 0 151 40">
+                    <path fill="white" fill-rule="evenodd" d="M6.253 0h30.494a6.27 6.27 0 0 1 4.417 1.839A6.28 6.28 0 0 1 43 6.26V28.96q.001.148-.005.29V40l-8.12-4.775H6.253a6.27 6.27 0 0 1-4.416-1.84A6.28 6.28 0 0 1 0 28.964V6.263a6.28 6.28 0 0 1 1.837-4.421A6.27 6.27 0 0 1 6.253.002zm15.484 21.578q-.348 0-.692.046L15.3 11.647a3.97 3.97 0 0 0-2.732-5.986 3.956 3.956 0 0 0-4.246 2.262 3.97 3.97 0 0 0 1.065 4.697c.668.557 1.5.879 2.368.916l5.85 10.146a5.116 5.116 0 0 0 4.113 8.111 5.1 5.1 0 0 0 4.555-2.756 5.12 5.12 0 0 0-.368-5.317l5.87-10.178a3.96 3.96 0 0 0 3.692-3.085 3.97 3.97 0 0 0-2.003-4.376 3.955 3.955 0 0 0-4.744.784 3.97 3.97 0 0 0-.49 4.79l-5.754 9.976a5 5 0 0 0-.736-.058z" clip-rule="evenodd"></path>
+                    <path fill="white" d="M52.267 15.294a4.7 4.7 0 0 1-.26-1.078 2.07 2.07 0 0 1 .536-1.568A2.02 2.02 0 0 1 54.05 12c.502-.003.988.174 1.372.5.385.325.643.778.729 1.278l2.82 9.617h.057l2.821-9.617c.086-.5.344-.953.728-1.28A2.1 2.1 0 0 1 63.95 12a2 2 0 0 1 1.506.65 2.05 2.05 0 0 1 .537 1.566 4.5 4.5 0 0 1-.26 1.078L61.76 26.486C61.358 27.622 61.093 28 58.998 28s-2.359-.378-2.761-1.514zM80.562 23.504c.056.963.202 1.92.438 2.855a1.78 1.78 0 0 1-1.226 1.552 1.8 1.8 0 0 1-.69.079 2.28 2.28 0 0 1-1.823-.654 2.3 2.3 0 0 1-.672-1.822 7.3 7.3 0 0 1-5.8 2.476 4.52 4.52 0 0 1-3.299-1.165A4.55 4.55 0 0 1 66 23.65c0-3.524 2.67-4.513 5.92-4.892l2.58-.292c1.009-.11 1.829-.35 1.829-1.576s-1.25-1.747-2.67-1.747c-3.141 0-3.222 2.33-4.905 2.33a1.68 1.68 0 0 1-1.64-.975 1.7 1.7 0 0 1-.155-.655c0-1.688 2.38-3.844 6.73-3.844 4.064 0 6.879 1.311 6.879 4.368zm-4.237-3.058a3.8 3.8 0 0 1-1.829.67l-1.537.232c-1.771.263-2.729.816-2.729 2.097 0 .96.898 1.747 2.355 1.747 2.323 0 3.745-1.514 3.745-3.086zM83 8.153c0-.571.213-1.119.591-1.522.379-.404.892-.631 1.428-.631s1.049.227 1.427.63c.38.404.592.952.592 1.523v9.786l4.484-5.308c.19-.244.427-.443.693-.586.267-.142.558-.224.856-.24.489.01.956.216 1.31.577.353.36.567.85.6 1.37.01.27-.04.54-.145.785a1.7 1.7 0 0 1-.464.63l-2.993 3.336 4.204 6.015c.273.404.419.889.417 1.386a2.16 2.16 0 0 1-.554 1.461 1.9 1.9 0 0 1-1.354.633 1.97 1.97 0 0 1-1.037-.243 2.1 2.1 0 0 1-.788-.758l-3.816-5.75-1.411 1.326v3.274c0 .571-.213 1.119-.591 1.522-.379.404-.892.631-1.428.631a1.96 1.96 0 0 1-1.428-.63 2.23 2.23 0 0 1-.59-1.523zM99 6c.463 0 .911.179 1.269.506s.602.783.693 1.288c.09.506.02 1.031-.198 1.486a2.1 2.1 0 0 1-.999 1.008 1.8 1.8 0 0 1-1.346.074 2.03 2.03 0 0 1-1.082-.895 2.43 2.43 0 0 1-.327-1.457c.045-.513.249-.993.576-1.357A1.9 1.9 0 0 1 99 6m-1.921 8.037c0-.281.05-.56.146-.82.097-.26.238-.495.417-.694.178-.199.39-.357.623-.464a1.75 1.75 0 0 1 1.47 0c.234.107.446.265.624.464.179.199.32.435.417.695s.146.538.146.82v11.82c0 .569-.203 1.113-.563 1.515S99.51 28 99 28s-.998-.226-1.358-.627a2.27 2.27 0 0 1-.563-1.515zM104 14.133c0-1.281.565-2.128 1.866-2.128 1.3 0 1.867.847 1.867 2.128v.55h.057a6 6 0 0 1 2.173-1.996 5.8 5.8 0 0 1 2.834-.686c2.488 0 5.203 1.282 5.203 5.596v8.276c0 .564-.218 1.105-.605 1.504a2.03 2.03 0 0 1-1.46.623 2.03 2.03 0 0 1-1.459-.623 2.16 2.16 0 0 1-.605-1.504V18.44c0-1.72-.821-2.944-2.603-2.944a3.17 3.17 0 0 0-2.24 1.009 3.36 3.36 0 0 0-.899 2.342v7.023c0 .564-.217 1.105-.605 1.504a2.03 2.03 0 0 1-1.459.623 2.03 2.03 0 0 1-1.46-.623A2.16 2.16 0 0 1 104 25.87zM121 8.153c0-.57.218-1.119.605-1.522.387-.404.912-.631 1.46-.631s1.073.227 1.46.63c.387.404.604.952.604 1.523v5.927h.057a5.6 5.6 0 0 1 2.04-1.721 5.35 5.35 0 0 1 2.569-.551c2.489 0 5.205 1.298 5.205 5.663v8.376c0 .57-.218 1.119-.605 1.522-.387.404-.912.631-1.46.631a2.02 2.02 0 0 1-1.46-.63 2.2 2.2 0 0 1-.604-1.523v-7.524c0-1.74-.821-2.98-2.602-2.98a3.15 3.15 0 0 0-2.24 1.022 3.42 3.42 0 0 0-.898 2.37v7.107c0 .571-.218 1.12-.605 1.523-.387.404-.913.63-1.46.63a2.02 2.02 0 0 1-1.46-.63 2.2 2.2 0 0 1-.605-1.523zM150.562 23.504c.056.963.203 1.92.438 2.855a1.78 1.78 0 0 1-1.227 1.553 1.8 1.8 0 0 1-.689.078 2.28 2.28 0 0 1-1.824-.654 2.3 2.3 0 0 1-.672-1.822 7.3 7.3 0 0 1-5.8 2.476 4.52 4.52 0 0 1-3.298-1.165A4.55 4.55 0 0 1 136 23.65c0-3.524 2.669-4.513 5.921-4.892l2.579-.292c1.017-.11 1.829-.35 1.829-1.576s-1.248-1.747-2.669-1.747c-3.141 0-3.221 2.33-4.905 2.33a1.68 1.68 0 0 1-1.243-.433 1.7 1.7 0 0 1-.552-1.197c0-1.688 2.379-3.844 6.729-3.844 4.063 0 6.879 1.311 6.879 4.368zm-4.237-3.058a3.8 3.8 0 0 1-1.828.67l-1.538.232c-1.77.263-2.728.816-2.728 2.097 0 .96.897 1.747 2.355 1.747 2.321 0 3.743-1.514 3.743-3.086z"></path>
+                </svg>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm text-gray-400">
+                <a href="quem-somos.html" class="hover:text-white transition-colors duration-200">Quem Somos</a>
+                <span class="text-gray-700">|</span>
+                <a href="prestacao-de-contas.html" class="hover:text-white transition-colors duration-200">Prestação de Contas</a>
+                <span class="text-gray-700">|</span>
+                <a href="politica-de-privacidade.html" class="hover:text-white transition-colors duration-200">Política de Privacidade</a>
+                <span class="text-gray-700">|</span>
+                <a href="termos-de-uso.html" class="hover:text-white transition-colors duration-200">Termos de Uso</a>
+            </div>
+
+            <p class="text-xs text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                AVISO: Esta é uma campanha de arrecadação urgente. Todos os fundos são processados com segurança. 
+                Ao doar, você concorda com nossos termos de transparência e uso de dados para emissão de comprovantes.
+                <br>
+                © 2026 Vakinha - CNPJ: 32.268.152/0001-66
+            </p>
+        </div>
+    </footer>
+   <!-- CHECKOUT EXTERNO -->
+<script>
+    // Cole o link de checkout de cada valor abaixo.
+    const CHECKOUT_LINKS = {
+        30: "https://pay.cakto.com.br/yub3ah5_879492",
+        35: "https://pay.cakto.com.br/nqdq6u5",
+        40: "https://pay.cakto.com.br/3con8ny",
+        45: "https://pay.cakto.com.br/8bgbfs8",
+        50: "https://pay.cakto.com.br/6prrdoe",
+        60: "https://pay.cakto.com.br/33fb3sx",
+        70: "https://pay.cakto.com.br/j3tzo5h",
+        100: "https://pay.cakto.com.br/3dzsozy",
+        235: "https://pay.cakto.com.br/338c2xf"
+    };
+
+    function getSelectedAmount() {
+        const selectedBtn = document.querySelector('#main-donation-grid .donation-button-trigger.selected');
+        return selectedBtn ? parseFloat(selectedBtn.getAttribute('data-amount')) : 100;
+    }
+
+    function openCheckout(amount) {
+        const checkoutLink = CHECKOUT_LINKS[amount];
+
+        if (!checkoutLink || checkoutLink.startsWith("COLE_AQUI")) {
+            alert(`Configure o link do checkout de R$ ${amount},00 no arquivo HTML.`);
+            return;
+        }
+
+        const checkout = new URL(checkoutLink, window.location.href);
+
+        // MantÃ©m UTMs e parÃ¢metros comuns de rastreamento.
+        const currentParams = new URLSearchParams(window.location.search);
+        currentParams.forEach((value, key) => {
+            if (key.startsWith('utm_') || ['src', 'sck', 'xcod', 'fbclid', 'gclid', 'ttclid'].includes(key)) {
+                checkout.searchParams.set(key, value);
+            }
+        });
+
+        window.location.href = checkout.toString();
+    }
+
+    function scrollToDonation() {
+        const el = document.getElementById('como-ajudar');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function initMainButtons() {
+        const container = document.getElementById('main-donation-grid');
+        if (!container) return;
+
+        const buttons = container.querySelectorAll('.donation-button-trigger');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                buttons.forEach(b => {
+                    b.classList.remove('selected', 'bg-[#EEFFE6]', 'border-vakinha');
+                    b.style.borderWidth = '1px';
+                });
+
+                this.classList.add('selected', 'bg-[#EEFFE6]', 'border-vakinha');
+                this.style.borderWidth = '2px';
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initMainButtons();
+        if (window.lucide) lucide.createIcons();
+
+        const notif = document.getElementById('sales-notification');
+        const names = ["Mariana S.", "JoÃ£o P.", "Carlos T.", "Ana L.", "Fernanda R.", "Ricardo M."];
+        const amounts = [30, 45, 50, 100, 35, 70];
+
+        if (notif) {
+            setInterval(() => {
+                const name = names[Math.floor(Math.random() * names.length)];
+                const amount = amounts[Math.floor(Math.random() * amounts.length)];
+                document.getElementById('notif-text').innerHTML =
+                    `<strong>${name}</strong> doou <strong>R$ ${amount},00</strong> agora.`;
+
+                notif.classList.add('active');
+                setTimeout(() => notif.classList.remove('active'), 5000);
+            }, 12000);
+        }
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+
