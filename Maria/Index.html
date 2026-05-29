@@ -1,1 +1,989 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <title>Doe para o Tarde com Maria</title>
+  <meta name="description" content="Doe agora para a Tarde com Maria e ajude a levar pães, quentinhas, cestas básicas, atendimento médico e evangelização a quem mais precisa." />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Doe para o Tarde com Maria" />
+  <meta property="og:description" content="A fome não espera. A sua doação ajuda a levar alimento, atendimento médico e evangelização a quem mais precisa." />
+  <meta property="og:image" content="https://doe.tardecommaria.com.br/wp-content/uploads/2024/10/ssasasdsad.webp" />
+  <link rel="icon" href="https://doe.tardecommaria.com.br/wp-content/uploads/2024/10/Group-29-150x150.png" sizes="32x32" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "it6kenwlnd");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17532295976"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "AW-17532295976");
+  </script>
+
+  <style>
+    :root {
+      --blue: #123c7c;
+      --blue-dark: #08244d;
+      --gold: #f6c44f;
+      --gold-dark: #c28a12;
+      --red: #c8202f;
+      --green: #168f52;
+      --ink: #14213d;
+      --muted: #5f6b7a;
+      --paper: #fffaf0;
+      --white: #ffffff;
+      --line: rgba(20, 33, 61, 0.14);
+      --shadow: 0 18px 45px rgba(8, 36, 77, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", Arial, sans-serif;
+      color: var(--ink);
+      background: #ffffff;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .section {
+      padding: 72px 20px;
+    }
+
+    .wrap {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(246, 196, 79, 0.16);
+      color: var(--gold-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      padding: 44px 20px 76px;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(8, 36, 77, 0.96) 0%, rgba(8, 36, 77, 0.82) 48%, rgba(8, 36, 77, 0.36) 100%),
+        url("https://doe.tardecommaria.com.br/wp-content/uploads/2024/10/ssasasdsad.webp") center right / cover no-repeat;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 680px) minmax(280px, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.35rem, 5.7vw, 5.35rem);
+      line-height: 0.98;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 22px 0 0;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 28px 0 0;
+      max-width: 680px;
+    }
+
+    .proof-item {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 8px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .proof-item strong {
+      display: block;
+      color: var(--gold);
+      font-size: clamp(1.25rem, 2.4vw, 2rem);
+      line-height: 1;
+    }
+
+    .proof-item span {
+      display: block;
+      margin-top: 7px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 16px 24px;
+      border-radius: 8px;
+      border: 0;
+      background: var(--red);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(200, 32, 47, 0.28);
+      font-weight: 900;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(200, 32, 47, 0.36);
+    }
+
+    .btn.secondary {
+      background: var(--white);
+      color: var(--blue-dark);
+      box-shadow: none;
+    }
+
+    .hero-card {
+      align-self: end;
+      border-radius: 8px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card strong {
+      display: block;
+      color: var(--red);
+      font-size: 1.1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .hero-card p {
+      margin: 10px 0 0;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    .section-title {
+      max-width: 860px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      color: var(--blue-dark);
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .section-title p {
+      margin: 16px auto 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .mission-card,
+    .donation-card,
+    .impact-card,
+    .faq details {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 10px 25px rgba(8, 36, 77, 0.08);
+    }
+
+    .mission-card {
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      padding: 22px;
+      color: var(--white);
+      background:
+        linear-gradient(180deg, rgba(8, 36, 77, 0.16), rgba(8, 36, 77, 0.88)),
+        var(--image) center / cover no-repeat;
+    }
+
+    .mission-card h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .mission-card p {
+      margin: 10px 0 0;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    .donation {
+      background: var(--paper);
+    }
+
+    .donation-alert {
+      width: min(860px, 100%);
+      margin: 0 auto 26px;
+      border-left: 6px solid var(--red);
+      border-radius: 8px;
+      padding: 20px 22px;
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(8, 36, 77, 0.1);
+    }
+
+    .donation-alert strong {
+      display: block;
+      color: var(--red);
+      font-size: 1.35rem;
+      font-weight: 900;
+    }
+
+    .donation-alert span {
+      display: block;
+      margin-top: 7px;
+      color: var(--ink);
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    .donation-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .donation-card {
+      display: flex;
+      min-height: 260px;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 22px;
+    }
+
+    .donation-card.featured {
+      border: 2px solid var(--gold);
+      box-shadow: 0 18px 40px rgba(194, 138, 18, 0.2);
+    }
+
+    .badge {
+      align-self: flex-start;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(22, 143, 82, 0.12);
+      color: var(--green);
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .donation-card h3 {
+      margin: 0;
+      color: var(--blue-dark);
+      font-size: 1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .price {
+      margin: 12px 0 0;
+      color: var(--blue-dark);
+      font-size: 2.35rem;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .price small {
+      font-size: 0.95rem;
+    }
+
+    .donation-card p {
+      flex: 1;
+      margin: 14px 0 20px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .donation-card .btn {
+      width: 100%;
+      min-height: 50px;
+      padding: 14px 12px;
+      font-size: 0.88rem;
+    }
+
+    .impact {
+      background: var(--blue-dark);
+      color: var(--white);
+    }
+
+    .impact .section-title h2,
+    .impact .section-title p {
+      color: var(--white);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .impact-card {
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .impact-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .impact-card div {
+      padding: 20px;
+    }
+
+    .impact-card strong {
+      display: block;
+      color: var(--gold);
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .impact-card span {
+      display: block;
+      margin-top: 8px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .split img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .split h2 {
+      margin: 0;
+      color: var(--blue-dark);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      font-weight: 900;
+    }
+
+    .split p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 600;
+    }
+
+    .medical {
+      background:
+        linear-gradient(90deg, rgba(8, 36, 77, 0.94), rgba(8, 36, 77, 0.68)),
+        url("https://doe.tardecommaria.com.br/wp-content/uploads/2024/10/rectangle.webp") center / cover no-repeat;
+      color: var(--white);
+    }
+
+    .medical-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .medical h2 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      line-height: 1.05;
+      font-weight: 900;
+    }
+
+    .medical h2 span {
+      color: var(--gold);
+    }
+
+    .medical-card {
+      border-radius: 8px;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+    }
+
+    .medical-card strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.6rem;
+      font-weight: 900;
+    }
+
+    .medical-card p {
+      margin: 10px 0 0;
+      line-height: 1.65;
+      font-weight: 700;
+    }
+
+    .cta-band {
+      background: var(--gold);
+      color: var(--blue-dark);
+      text-align: center;
+    }
+
+    .cta-band h2 {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.08;
+      font-weight: 900;
+    }
+
+    .cta-band p {
+      max-width: 720px;
+      margin: 16px auto 0;
+      font-size: 1.12rem;
+      line-height: 1.65;
+      font-weight: 700;
+    }
+
+    .cta-band .btn {
+      margin-top: 28px;
+    }
+
+    .faq {
+      background: #f7f9fc;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+      width: min(860px, 100%);
+      margin: 0 auto;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      padding: 20px 22px;
+      color: var(--blue-dark);
+      font-weight: 900;
+      list-style: none;
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq details p {
+      margin: 0;
+      padding: 0 22px 22px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 600;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 20;
+      display: grid;
+      place-items: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #18a857;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.24);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .whatsapp-float img {
+      width: 34px;
+      height: 34px;
+    }
+
+    .footer {
+      padding: 26px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .split,
+      .medical-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mission-grid,
+      .donation-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        min-height: auto;
+        padding-top: 36px;
+        background:
+          linear-gradient(180deg, rgba(8, 36, 77, 0.98), rgba(8, 36, 77, 0.7)),
+          url("https://doe.tardecommaria.com.br/wp-content/uploads/2024/10/ssasasdsad.webp") center / cover no-repeat;
+      }
+
+      .section {
+        padding: 54px 18px;
+      }
+
+      .hero-proof,
+      .mission-grid,
+      .donation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .button-row .btn {
+        width: 100%;
+      }
+
+      .hero-card {
+        align-self: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Tarde com Maria | Obra social e evangelização</p>
+          <h1>A fome não espera. <span>A sua doação também não precisa esperar.</span></h1>
+          <p>Hoje, uma pessoa pode receber pão, comida, acolhimento, atendimento médico e esperança porque você decidiu agir agora.</p>
+
+          <div class="hero-proof" aria-label="Impacto da obra">
+            <div class="proof-item">
+              <strong>+11 mi</strong>
+              <span>pães doados</span>
+            </div>
+            <div class="proof-item">
+              <strong>500 mil</strong>
+              <span>quentinhas entregues</span>
+            </div>
+            <div class="proof-item">
+              <strong>+70</strong>
+              <span>instituições atendidas</span>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <a class="btn" href="#cta">Quero doar agora</a>
+            <a class="btn secondary" href="#impacto">Ver impacto da obra</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <strong>Para muitos, amanhã é mais um dia com fome.</strong>
+          <p>Com poucos reais por dia, você ajuda a manter o Pão de Fátima, as quentinhas, as cestas básicas, a assistência médica e a mensagem de Nossa Senhora de Fátima chegando a quem mais precisa.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-title">
+          <p class="eyebrow">Onde sua ajuda entra</p>
+          <h2>A sua doação entra onde a necessidade é mais urgente.</h2>
+          <p>Não é apenas uma contribuição. É alimento na mesa, fé no coração e atendimento para quem muitas vezes não tem a quem recorrer.</p>
+        </div>
+
+        <div class="mission-grid">
+          <article class="mission-card" style="--image: url('https://doe.tardecommaria.com.br/wp-content/uploads/2024/10/333-1.webp');">
+            <h3>Combate à fome</h3>
+            <p>Pães, quentinhas e cestas básicas para famílias que não podem esperar.</p>
+          </article>
+          <article class="mission-card" style="--image: url('https://doe.tardecommaria.com.br/wp-content/uploads/2024/10/Group.png');">
+            <h3>Mensagem de Fátima</h3>
+            <p>Evangelização, transmissões, publicações e formação para milhares de pessoas.</p>
+          </article>
+          <article class="mission-card" style="--image: url('https://doe.tardecommaria.com.br/wp-content/uploads/2024/10/ssasasdsad.webp');">
+            <h3>Capelas e oração</h3>
+            <p>Missas, terços e acolhimento espiritual para quem busca fé e esperança.</p>
+          </article>
+          <article class="mission-card" style="--image: url('https://doe.tardecommaria.com.br/wp-content/uploads/2024/10/rectangle.webp');">
+            <h3>Assistência médica</h3>
+            <p>Ajude a levantar o Centro Médico Jacinta Marto para atender pessoas vulneráveis.</p>
+          </article>
+        </div>
+
+        <div class="button-row" style="justify-content:center;">
+          <a class="btn" href="#cta">Sim, eu vou ajudar</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section donation" id="cta">
+      <div class="wrap">
+        <div class="section-title">
+          <p class="eyebrow">Escolha sua doação</p>
+          <h2>Doe agora. Para quem tem fome, cada dia pesa.</h2>
+        </div>
+
+        <div class="donation-alert">
+          <strong>O que para muitos é pouco, para uma família carente pode ser alimento hoje.</strong>
+          <span>Escolha abaixo como quer sustentar essa obra: mensalmente ou com uma doação única.</span>
+        </div>
+
+        <div class="donation-grid">
+          <article class="donation-card">
+            <span class="badge">Mensal</span>
+            <h3>Ajuda constante</h3>
+            <div class="price"><small>R$</small> 60</div>
+            <p>R$ 2 por dia para manter alimento e esperança chegando todos os meses.</p>
+            <a class="btn" href="https://pay.cakto.com.br/3cnn9ag_905624">Doar agora</a>
+          </article>
+
+          <article class="donation-card featured">
+            <span class="badge">Mais escolhida</span>
+            <h3>Compromisso de amor</h3>
+            <div class="price"><small>R$</small> 120</div>
+            <p>R$ 4 por dia para fortalecer o Pão de Fátima, a assistência e a evangelização.</p>
+            <a class="btn" href="https://pay.cakto.com.br/3335qfc">Sim, eu vou ajudar</a>
+          </article>
+
+          <article class="donation-card">
+            <span class="badge">Mensal</span>
+            <h3>Devoto fiel</h3>
+            <div class="price"><small>R$</small> 300</div>
+            <p>R$ 10 por dia para ampliar a ajuda a famílias, comunidades e instituições.</p>
+            <a class="btn" href="https://pay.cakto.com.br/36pih3y">Doar agora</a>
+          </article>
+
+          <article class="donation-card">
+            <span class="badge">Única</span>
+            <h3>Doação anual</h3>
+            <div class="price"><small>R$</small> 365</div>
+            <p>Uma decisão hoje para sustentar uma obra que atende pessoas todos os dias.</p>
+            <a class="btn" href="https://pay.cakto.com.br/ez3pv8z">Fazer doação única</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section impact" id="impacto">
+      <div class="wrap">
+        <div class="section-title">
+          <p class="eyebrow">Impacto real</p>
+          <h2>Isso não é promessa vazia. É obra acontecendo todos os dias.</h2>
+          <p>Milhares de pessoas já foram alcançadas por essa missão. A sua doação mantém essa corrente viva.</p>
+        </div>
+
+        <div class="impact-grid">
+          <article class="impact-card">
+            <img src="https://doe.tardecommaria.com.br/wp-content/uploads/2024/10/333-1.webp" alt="Distribuição de pães do Pão de Fátima" />
+            <div>
+              <strong>11 milhões</strong>
+              <span>de pães doados</span>
+            </div>
+          </article>
+          <article class="impact-card">
+            <img src="https://doe.tardecommaria.com.br/wp-content/uploads/2024/10/222-1.webp" alt="Quentinhas entregues pela obra social" />
+            <div>
+              <strong>500 mil</strong>
+              <span>quentinhas entregues</span>
+            </div>
+          </article>
+          <article class="impact-card">
+            <img src="https://doe.tardecommaria.com.br/wp-content/uploads/2024/10/111-2.webp" alt="Cestas básicas doadas a famílias necessitadas" />
+            <div>
+              <strong>3 mil</strong>
+              <span>cestas básicas</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <img src="https://doe.tardecommaria.com.br/wp-content/uploads/2024/10/rectangle.webp" alt="Tarde com Maria" />
+        <div>
+          <p class="eyebrow">Conheça a obra</p>
+          <h2>Todos os dias, a ajuda precisa chegar. E ela só chega porque pessoas decidem doar.</h2>
+          <p>Fundada em 1987, a Tarde com Maria é uma associação católica sem fins lucrativos, responsável pela única réplica do mundo da Capela das Aparições, localizada no Santuário Nossa Senhora de Fátima, no Rio de Janeiro.</p>
+          <p>Além da evangelização, a obra fabrica e distribui diariamente pães, quentinhas e cestas básicas, oferece cursos profissionalizantes e trabalha para ampliar o atendimento médico aos mais necessitados.</p>
+          <div class="button-row">
+            <a class="btn" href="#cta">Quero fazer parte</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section medical">
+      <div class="wrap">
+        <p class="eyebrow">Centro Médico Jacinta Marto</p>
+        <h2>Uma consulta pode mudar o destino de uma família carente. <span>A sua doação ajuda essa obra a sair do papel.</span></h2>
+
+        <div class="medical-grid">
+          <div class="medical-card">
+            <strong>+30.000 atendimentos por ano</strong>
+            <p>O Centro Médico Jacinta Marto nasce para atender pessoas em vulnerabilidade social que precisam de cuidado, orientação e dignidade.</p>
+          </div>
+          <div class="medical-card">
+            <strong>500 m² e 10 ambulatórios</strong>
+            <p>Um espaço preparado para oferecer diversas especialidades médicas aos mais carentes.</p>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <a class="btn" href="#cta">Ajudar o centro médico</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-band">
+      <div class="wrap">
+        <h2>Os pastorinhos não esperavam sobrar. Eles davam porque entendiam a dor do outro.</h2>
+        <p>Faça como eles. Escolha agora a sua doação e ajude a Tarde com Maria a levar alimento, fé e cuidado a quem mais precisa.</p>
+        <a class="btn" href="#cta">Quero doar agora</a>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <div class="wrap">
+        <div class="section-title">
+          <p class="eyebrow">Perguntas frequentes</p>
+          <h2>Antes de doar, veja as principais dúvidas.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details open>
+            <summary>Como funcionam as doações para a Tarde com Maria?</summary>
+            <p>Ao doar, você se torna um Devoto Fiel e passa a sustentar obras concretas de caridade e evangelização. Sua contribuição pode ser única ou mensal, conforme o valor que escolher.</p>
+          </details>
+
+          <details>
+            <summary>Quais são as formas de pagamento?</summary>
+            <p>As doações podem ser feitas por cartão de crédito ou Pix, de acordo com as opções disponíveis na plataforma de pagamento.</p>
+          </details>
+
+          <details>
+            <summary>Minha doação é segura?</summary>
+            <p>Sim. A doação é processada por plataforma segura, com proteção dos seus dados e confirmação do pagamento.</p>
+          </details>
+
+          <details>
+            <summary>Como falar com a equipe da Tarde com Maria?</summary>
+            <p>Você pode entrar em contato pelo e-mail suporte@tardecommaria.com.br ou tocar no ícone flutuante do WhatsApp nesta página.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <a class="whatsapp-float" href="https://lfa.tardecommaria.com.br/apoiadores" target="_blank" rel="noopener noreferrer" aria-label="Abrir conversa no WhatsApp">
+    <img src="https://tardecommaria.com.br/wp-content/uploads/2026/01/iconWhats.svg" alt="" />
+  </a>
+
+  <footer class="footer">
+    © 2026 - Todos os direitos reservados | Política de privacidade - Termos de Uso
+  </footer>
+
+  <script>
+    (function () {
+      const allowedExternalHosts = [];
+
+      function normalizeHost(host) {
+        return (host || "").toLowerCase().replace(/^www\./, "");
+      }
+
+      function getRootNameFromDomain(hostname) {
+        const host = normalizeHost(hostname);
+        if (host.endsWith(".com.br")) return host.replace(/\.com\.br$/, "");
+        if (host.endsWith(".com")) return host.replace(/\.com$/, "");
+        return host.split(".")[0] || host;
+      }
+
+      function getOriginLpValue() {
+        const path = window.location.pathname.replace(/^\/+|\/+$/g, "");
+        return path || getRootNameFromDomain(window.location.hostname);
+      }
+
+      function isValidHttpUrl(href) {
+        return /^https?:\/\//i.test(href);
+      }
+
+      function isSameDomain(urlObj) {
+        return normalizeHost(urlObj.hostname) === normalizeHost(window.location.hostname);
+      }
+
+      function isAllowedExternalHost(urlObj) {
+        if (!allowedExternalHosts.length) return true;
+        const targetHost = normalizeHost(urlObj.hostname);
+        return allowedExternalHosts.some((allowed) => targetHost === normalizeHost(allowed));
+      }
+
+      function shouldProcessLink(anchor) {
+        if (!anchor || !anchor.href) return false;
+        const rawHref = anchor.getAttribute("href") || "";
+        if (!rawHref || rawHref.startsWith("#")) return false;
+        if (rawHref.startsWith("mailto:") || rawHref.startsWith("tel:") || rawHref.startsWith("javascript:")) return false;
+        if (!isValidHttpUrl(rawHref)) return false;
+
+        try {
+          const urlObj = new URL(rawHref, window.location.href);
+          return !isSameDomain(urlObj) && isAllowedExternalHost(urlObj);
+        } catch (error) {
+          return false;
+        }
+      }
+
+      function appendTrackingParams(targetUrl) {
+        const currentParams = new URLSearchParams(window.location.search);
+
+        currentParams.forEach((value, key) => {
+          if (key.toLowerCase() !== "origin_lp") {
+            targetUrl.searchParams.set(key, value);
+          }
+        });
+
+        targetUrl.searchParams.set("origin_lp", getOriginLpValue());
+      }
+
+      function updateLink(anchor) {
+        if (!shouldProcessLink(anchor)) return;
+
+        try {
+          const urlObj = new URL(anchor.href, window.location.href);
+          appendTrackingParams(urlObj);
+          anchor.href = urlObj.toString();
+          anchor.setAttribute("data-origin-lp-applied", "true");
+        } catch (error) {
+          return;
+        }
+      }
+
+      function scanLinks(root) {
+        (root || document).querySelectorAll("a[href]").forEach(updateLink);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        scanLinks(document);
+
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
+              if (node.nodeType !== 1) return;
+              if (node.matches && node.matches("a[href]")) updateLink(node);
+              if (node.querySelectorAll) scanLinks(node);
+            });
+          });
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+      });
+
+      window.addEventListener("load", () => scanLinks(document));
+      setTimeout(() => scanLinks(document), 1000);
+      setTimeout(() => scanLinks(document), 2500);
+    })();
+  </script>
+</body>
+</html>
 
